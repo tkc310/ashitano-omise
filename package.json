@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "clean": "rm -rf ./dist && rm -rf ./public",
+    "clean": "rm -rf ./dist && rm -rf ./docs",
     "build": "npm run clean && webpack --mode production",
-    "release": "npm run build && cp -r ./dist ./public",
+    "release": "npm run build && cp -r ./dist ./docs",
     "dev_build": "npm run clean && webpack --mode development",
     "watch": "webpack-dev-server --mode development"
   },
