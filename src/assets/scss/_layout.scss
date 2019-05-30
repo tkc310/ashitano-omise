@@ -1,0 +1,49 @@
+// layout
+
+@import './_variable';
+
+.l-container {}
+
+.l-header {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 32px;
+  border-bottom: 1px solid $border-color-header;
+  box-sizing: border-box;
+  &_logo {
+    font-family: $font-family-en;
+    font-size: .8rem;
+    line-height: 2em;
+    letter-spacing: .3rem;
+  }
+}
+
+.l-footer {
+  padding: 0 16px;
+  background: $bg-color-footer;
+  &_head {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &_copyright {
+    font-family: $font-family-en;
+    font-size: .8rem;
+    line-height: 2em;
+    letter-spacing: .3rem;
+    color: #fff;
+  }
+  &_btn-top {
+    margin-left: auto;
+    color: #fff;
+    &-text {
+      font-family: $font-family-en;
+    }
+  }
+}
+
+.l-content {
+  width: 960px;
+  padding: 32px 0 56px;
+  margin: 0 auto;
+}

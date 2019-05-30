@@ -18,6 +18,13 @@
   <link rel="canonical" href="">
   <!-- SEO end -->
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Google Material design icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
   <style type="text/css" id="fpbf_ac93d8111_css">
     @font-face {
@@ -28,21 +35,28 @@
 </head>
 <body>
 <div class="l-container">
-  <header class="l-header"></header>
+  <header class="l-header">
+    <h1 class="l-header_logo">Ashitano Omise Tokyo</h1>
+  </header>
 
   <main class="l-content">
     <div class="p-index">
       <section class="p-index_shops">
-        <div class="p-index_shops-title">
-          <span class="c-icon_new"></span>
-          <span>新着のお店</span>
-        </div>
+        <!--<div class="p-index_shops-title c-heading">-->
+          <!--<i class="c-heading_icon material-icons">fiber_new</i>-->
+          <!--<span class="c-heading_text">LATED SHOPS</span>-->
+        <!--</div>-->
         <ul class="c-list">
           <% [
             { id: 1, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_01.jpg' },
             { id: 2, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_02.jpg' },
             { id: 3, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_03.jpg' },
-            { id: 3, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_04.jpg' },
+            { id: 4, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_04.jpg' },
+            { id: 5, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_05.jpg' },
+            { id: 6, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_06.jpg' },
+            { id: 7, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_07.jpg' },
+            { id: 8, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_08.jpg' },
+            { id: 9, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_09.jpg' },
           ].forEach(function(shop) { %>
           <li class="c-list_item">
             <div class="c-list_img-wrap">
@@ -50,10 +64,10 @@
                    src="/assets/images/<%= shop.img %>"
                    alt="<%= shop.title %>">
             </div>
-            <div class="c-list_caption">
-              <div class="c-list_date">
+            <div class="c-list_desc">
+              <time class="c-list_date">
                 <%= shop.date %>
-              </div>
+              </time>
               <div class="c-list_title">
                 <%= shop.title %>
               </div>
@@ -74,10 +88,20 @@
     </div>
   </main>
 
-  <footer class="l-footer"></footer>
+  <footer class="l-footer">
+    <div class="l-footer_head">
+      <p class="l-footer_copyright">
+        Ashitano Omise Tokyo
+      </p>
+      <button class="l-footer_btn-top c-btn">
+        <i class="c-btn_icon material-icons">arrow_drop_up</i>
+        <span class="l-footer_btn-top-text c-btn_text">BACK TO TOP</span>
+      </button>
+    </div>
+  </footer>
 </div>
 
-<script src="/assets/js/vendor.js"></script>
+<!--<script src="/assets/js/vendor.js"></script>-->
 <script src="/assets/js/app.js"></script>
 </body>
 </html>
