@@ -70,25 +70,12 @@ module.exports = (env, argv) => {
       new HardSourceWebpackPlugin.ExcludeModulePlugin([
         { test: /mini-css-extract-plugin[\\/]dist[\\/]loader/ },
       ]),
-      // new HardSourceWebpackPlugin.ParallelModulePlugin({
-      //   // How to launch the extra processes. Default:
-      //   fork: (fork, compiler, webpackBin) => fork(
-      //     webpackBin(),
-      //     ['--config', __filename], {
-      //       silent: true,
-      //     }
-      //   ),
-      //   Number of workers to spawn. Default:
-      //   numWorkers: () => require('os').cpus().length,
-      //   Number of modules built before launching parallel building. Default:
-      //   minModules: 10,
-      // }),
     ]);
 
     devServer = {
       contentBase: path.join(__dirname, 'dist'),
       host: '0.0.0.0',
-      port: 1111,
+      port: 1234,
       inline: true,
       hot: true,
       progress: true,

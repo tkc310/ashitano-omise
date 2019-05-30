@@ -14,5 +14,12 @@ $ npm run watch
 $ open http://0.0.0.0:1111
 
 # production build
-$ npm run build
+$ npm run release
+
+# release tag
+$ git add ./public
+$ git commit -a
+$ git push origin master
+$ git tag -a release-v0.x -m 'comment'
+$ git push origin release-v0.x
 ```
