@@ -6,6 +6,14 @@
 # project clone
 $ git clone xxx
 
+# node install
+refs: https://qiita.com/1000ch/items/41ea7caffe8c42c5211c
+$ nobenv install 10.15.3
+$ nobenv rehash
+
+# npm update
+npm update -g npm
+
 # npm package install
 $ npm i
 

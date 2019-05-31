@@ -148,7 +148,14 @@ module.exports = (env, argv) => {
         {
           test: /\.ejs$/,
           exclude: /(node_modules)/,
-          use: 'ejs-compiled-loader'
+          loader: 'compile-ejs-loader',
+          // https://github.com/mde/ejs
+          options: {
+            'htmlmin': true,
+            'htmlminOptions': {
+              removeComments: true
+            }
+          }
         },
       ]
     },
