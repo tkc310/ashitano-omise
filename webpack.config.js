@@ -3,6 +3,7 @@ const glob = require('glob');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 
+const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
@@ -47,6 +48,7 @@ module.exports = (env, argv) => {
     });
 
   let plugins = [
+    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: 'assets/css/app.css'
     }),
@@ -101,7 +103,15 @@ module.exports = (env, argv) => {
         {
           test: /\.ts$/,
           exclude: /(node_modules)/,
-          use: 'ts-loader'
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/\.vue$/]
+          }
+        },
+        {
+          test: /\.vue$/,
+          loader: 'vue-loader',
+          exclude: /(node_modules)/
         },
         {
           test: /\.scss$/,
@@ -144,12 +154,12 @@ module.exports = (env, argv) => {
     },
 
     resolve: {
-      extensions: [
-        '.ts',
-        '.js'
-      ],
+      extensions: ['.json', '.vue', '.ts', '.js'],
       alias: {
         '@': path.resolve(__dirname, 'src/assets/'),
+        '@ts': path.resolve(__dirname, 'src/assets/ts/'),
+        '@scss': path.resolve(__dirname, 'src/assets/scss/'),
+        vue: 'vue/dist/vue.js',
       }
     },
 
@@ -158,6 +168,22 @@ module.exports = (env, argv) => {
     },
 
     devtool: IS_DEVELOPMENT ? 'cheap-eval-source-map' : false,
+
+    optimization: {
+      splitChunks: {
+        // cacheGroups内にバンドルの設定を複数記述できる
+        cacheGroups: {
+          // 今回はvendorだが、任意の名前で問題ない
+          vendor: {
+            // node_modules配下のモジュールをバンドル対象とする
+            test: /node_modules/,
+            name: 'vendor',
+            chunks: 'initial',
+            enforce: true
+          }
+        }
+      }
+    },
 
     devServer,
 

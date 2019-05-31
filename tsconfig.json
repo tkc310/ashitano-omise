@@ -2,6 +2,21 @@
 	"compilerOptions": {
 		"sourceMap": true,
 		"target": "es5",
-		"module": "es2015"
+		"module": "es2015",
+		// データプロパティ厳密な推論
+		"strict": true,
+		// this型推論
+		"noImplicitThis": true,
+		"moduleResolution": "node",
+		// import Vue from 'vue' を有効
+		"allowSyntheticDefaultImports": true,
+		// import/export
+		"esModuleInterop": true,
+		// decorator
+		"experimentalDecorators": true,
+		"lib": [
+			"dom",
+			"es2019"
+		]
 	}
 }
