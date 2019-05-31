@@ -1,11 +1,16 @@
+// refs: https://qiita.com/logue/items/2b744cb1091da83021ab
+
 const path = require('path');
 const glob = require('glob');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 const { VueLoaderPlugin } = require('vue-loader');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = (env, argv) => {
@@ -58,6 +63,8 @@ module.exports = (env, argv) => {
   ].concat(pagesHtmlPlugins);
 
   let devServer = {};
+  let optimization = {};
+  let devtool = false;
 
   if (IS_DEVELOPMENT) {
     plugins = plugins.concat([
@@ -84,6 +91,45 @@ module.exports = (env, argv) => {
       disableHostCheck: true,
       historyApiFallback: true,
       open: false,
+    };
+
+    devtool = 'cheap-eval-source-map';
+  }
+  else {
+    plugins = plugins.concat([
+      new OptimizeCssAssetsPlugin({
+        assetNameRegExp: /\.optimize\.css$/g,
+        cssProcessor: require('cssnano'),
+        cssProcessorPluginOptions: {
+          preset: ['default', { discardComments: { removeAll: true } }],
+        },
+        canPrint: true
+      }),
+    ]);
+
+    optimization = {
+      minimizer: [
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            compress: {
+              drop_console: true
+            }
+          }
+        }),
+        new OptimizeCssAssetsPlugin({})
+      ],
+      splitChunks: {
+        name: true,
+        cacheGroups: {
+          vendor: {
+            // node_modules配下のモジュールをバンドル対象とする
+            test: /node_modules/,
+            name: 'vendor',
+            chunks: 'initial',
+            enforce: true
+          }
+        }
+      }
     };
   }
 
@@ -114,7 +160,7 @@ module.exports = (env, argv) => {
           exclude: /(node_modules)/
         },
         {
-          test: /\.scss$/,
+          test: /\.(scss$)/,
           exclude: /(node_modules)/,
           use: [
             {
@@ -122,11 +168,35 @@ module.exports = (env, argv) => {
               options: {
                 publicPath: path.resolve('./dist'),
                 hmr: true,
+                minimize: IS_DEVELOPMENT,
+                // ソースマップを有効にする
+                sourceMap: IS_DEVELOPMENT ? 2 : 0,
+                importLoaders: 2
               }
             },
             'css-loader',
-            'postcss-loader',
-            'sass-loader'
+            {
+              loader: "postcss-loader",
+              options: {
+                sourceMap: IS_DEVELOPMENT,
+                plugins: () => {
+                  return [
+                    require('precss'),
+                    require('autoprefixer')({
+                      grid: true
+                    })
+                  ];
+                }
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                url: false,
+                sourceMap: IS_DEVELOPMENT,
+                // includePaths: [path.resolve(__dirname, 'node_modules')]
+              }
+            }
           ]
         },
         {
@@ -174,26 +244,9 @@ module.exports = (env, argv) => {
       hints: false
     },
 
-    devtool: IS_DEVELOPMENT ? 'cheap-eval-source-map' : false,
-
-    optimization: {
-      splitChunks: {
-        // cacheGroups内にバンドルの設定を複数記述できる
-        cacheGroups: {
-          // 今回はvendorだが、任意の名前で問題ない
-          vendor: {
-            // node_modules配下のモジュールをバンドル対象とする
-            test: /node_modules/,
-            name: 'vendor',
-            chunks: 'initial',
-            enforce: true
-          }
-        }
-      }
-    },
-
+    devtool,
+    optimization,
     devServer,
-
     plugins
   };
 };
