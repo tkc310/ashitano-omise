@@ -1,3 +1,115 @@
 // mixin
 
 @import './_variable';
+
+/* MediaQuery */
+
+// min-width
+$breakpoint-min: (
+  'xs': 'screen and (min-width: 320px)',
+  'sm': 'screen and (min-width: 400px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1000px)',
+  'xl': 'screen and (min-width: 1200px)',
+  // スマホ alias
+  'sp-ho': 'screen and (min-width: 400px)',
+  'sp-ve': 'screen and (min-width: 768px)',
+  // タブレット alias
+  'tb-ho': 'screen and (min-width: 768px)',
+  'tb-ve': 'screen and (min-width: 1024px)',
+
+  '1col': 'screen and (min-width: 321px)',
+  '2col': 'screen and (min-width: 641px)',
+  '3col': 'screen and (min-width: 961px)',
+) !default;
+
+// max-width
+$breakpoint-max: (
+  'xs': 'screen and (max-width: 320px)',
+  'sm': 'screen and (max-width: 399px)',
+  'md': 'screen and (max-width: 767px)',
+  'lg': 'screen and (max-width: 999px)',
+  'xl': 'screen and (max-width: 1199px)',
+  // スマホ alias
+  'sp-ve': 'screen and (max-width: 399px)',
+  'sp-ho': 'screen and (max-width: 767px)',
+  // タブレット alias
+  'tb-ve': 'screen and (max-width: 767px)',
+  'tb-ho': 'screen and (max-width: 1023px)',
+
+  '1col': 'screen and (max-width: 320px)',
+  '2col': 'screen and (max-width: 640px)',
+  '3col': 'screen and (max-width: 960px)',
+) !default;
+
+@mixin media-min($breakpoint: md) {
+  @media #{map-get($breakpoint-min, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin media-max($breakpoint: md) {
+  @media #{map-get($breakpoint-max, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin media-factory-min($class, $bp: $breakpoint-min) {
+  #{$class} {
+    @content;
+  }
+  @each $suffix, $value in $bp {
+    @media #{$value} {
+      #{$class}-#{$suffix} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin media-factory-max($class, $bp: $breakpoint-max) {
+  #{$class} {
+    @content;
+  }
+  @each $suffix, $value in $bp {
+    @media #{$value} {
+      #{$class}-#{$suffix} {
+        @content;
+      }
+    }
+  }
+}
+
+/**
+ * MediaQuery Utility
+ *
+ * - min -
+ * is-hide-min-xs
+ * is-hide-min-sm
+ * is-hide-min-md
+ * is-hide-min-lg
+ * is-hide-min-xl
+ * is-hide-min-sp-ho
+ * is-hide-min-sp-ve
+ * is-hide-min-tb-ho
+ * is-hide-min-tb-ve
+ *
+ * - max -
+ * is-hide-max-xs
+ * is-hide-max-sm
+ * is-hide-max-md
+ * is-hide-max-lg
+ * is-hide-max-xl
+ * is-hide-max-sp-ho
+ * is-hide-max-sp-ve
+ * is-hide-max-tb-ho
+ * is-hide-max-tb-ve
+ *
+**/
+@include media-factory-min('.is-hide-min') {
+  display: none !important;
+}
+
+@include media-factory-max('.is-hide-max') {
+  display: none !important;
+}

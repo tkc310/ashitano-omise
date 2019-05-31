@@ -1,13 +1,20 @@
 // layout
 
 @import './_variable';
+@import './_mixin';
+
+$height-header: 48px;
 
 .l-container {}
 
 .l-header {
+  position: fixed;
+  z-index: 100;
   display: flex;
   align-items: center;
-  height: 48px;
+  width: 100%;
+  background: $bg-color-header;
+  height: $height-header;
   padding: 0 32px;
   border-bottom: 1px solid $border-color-header;
   box-sizing: border-box;
@@ -16,6 +23,9 @@
     font-size: .8rem;
     line-height: 2em;
     letter-spacing: .3rem;
+  }
+  @include media-max('2col') {
+    padding: 0 16px;
   }
 }
 
@@ -36,14 +46,34 @@
   &_btn-top {
     margin-left: auto;
     color: #fff;
+    @include media-max('2col') {
+      position: fixed;
+      z-index: 100;
+      bottom: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: $bg-color-footer !important;
+    }
+    &-icon {
+
+    }
     &-text {
       font-family: $font-family-en;
+      @include media-max('2col') {
+        display: none !important;
+      }
     }
   }
 }
 
 .l-content {
   width: 960px;
-  padding: 32px 0 56px;
+  padding: ($height-header + 32px) 0 56px;
   margin: 0 auto;
+  text-align: center;
+  @include media-max('3col')  {
+    width: 100%;
+    padding: ($height-header + 16px) 0 32px;
+  }
 }
