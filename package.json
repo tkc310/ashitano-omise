@@ -2,7 +2,7 @@
   "scripts": {
     "clean": "rm -rf ./dist && rm -rf ./docs",
     "build": "npm run clean && webpack --mode production",
-    "release": "npm run build && cp -r ./dist ./docs",
+    "release": "npm run build && cp -r ./dist ./docs && cp ./CNAME ./docs/CNAME",
     "dev_build": "npm run clean && webpack --mode development",
     "watch": "webpack-dev-server --mode development"
   },
