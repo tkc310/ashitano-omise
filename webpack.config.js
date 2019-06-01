@@ -240,6 +240,11 @@ module.exports = (env, argv) => {
       }
     },
 
+    externals: {
+      'Vue': true,
+      'window': true,
+    },
+
     performance: {
       hints: false
     },

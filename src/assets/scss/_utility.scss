@@ -1,0 +1,167 @@
+// utility
+
+@import './_variable';
+
+/* Clearfix */
+.u-cf:before,
+.u-cf:after {
+  content: "";
+  display: table !important;
+}
+.u-cf:after { clear: both; }
+
+
+/* Ellipsis */
+// 2行目以降はサポート薄いため注意(-webkit-系ブラウザのみ)
+// refs - http://caniuse.com/#feat=css-line-clamp
+@for $i from 1 through 5 {
+  .u-elps-#{$i} {
+    overflow: hidden;
+    @if ($i == 1) {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    } @else {
+      display: -webkit-box;
+      /* autoprefixer: off */
+      -webkit-box-orient: vertical;
+      /* autoprefixer: on */
+      -webkit-line-clamp: #{$i};
+    }
+  }
+}
+
+
+/* Fade hover, active */
+// ex - class="u-fade--hover"
+.u-fade {
+  &--hover {
+    transition: opacity .3s linear;
+    &:hover { opacity: .6; }
+  }
+  &--active {
+    transition: opacity .3s linear;
+    &:active { opacity: .6; }
+  }
+}
+
+
+/* State - JSで利用する共用のクラス */
+.u-is-hide { display: none; }
+.u-is-show { display: block; }
+
+
+/* Float - [注意] */
+.u-fl { float: left !important; }
+.u-fr { float: right !important; }
+
+
+/* Display - [注意] */
+.u-dn  { display: none !important; }
+.u-db  { display: block !important; }
+.u-di  { display: inline !important; }
+.u-dib { display: inline-block !important; }
+.u-dt  { display: table !important; }
+.u-dc  { display: table-cell !important; }
+
+
+/* TextAlign */
+.u-tal { text-align: left !important; }
+.u-tac { text-align: center !important; }
+.u-tar { text-align: right !important; }
+
+
+/* VerticalAlign */
+.u-vat { vertical-align: top; }
+.u-vam { vertical-align: middle; }
+.u-vab { vertical-align: bottom; }
+.u-va0 { vertical-align: 0; }
+.u-va1 { vertical-align: -1px; }
+.u-va2 { vertical-align: -2px; }
+.u-va3 { vertical-align: -3px; }
+.u-va4 { vertical-align: -4px; }
+.u-va5 { vertical-align: -5px; }
+
+
+/* Spacing margin, padding */
+// 0-30pxまで5px間隔で生成
+@for $i from 0 through 30 {
+  @if ($i % 5 == 0) {
+    $value_str: #{$i}px;
+    @if ($i == 0) {
+      $value_str: #{$i};
+    }
+    .u-m#{$i}  { margin       : #{$value_str} !important; }
+    .u-mt#{$i} { margin-top   : #{$value_str} !important; }
+    .u-mr#{$i} { margin-right : #{$value_str} !important; }
+    .u-mb#{$i} { margin-bottom: #{$value_str} !important; }
+    .u-ml#{$i} { margin-left  : #{$value_str} !important; }
+    .u-p#{$i}  { margin       : #{$value_str} !important; }
+    .u-pt#{$i} { margin-top   : #{$value_str} !important; }
+    .u-pr#{$i} { margin-right : #{$value_str} !important; }
+    .u-pb#{$i} { margin-bottom: #{$value_str} !important; }
+    .u-pl#{$i} { margin-left  : #{$value_str} !important; }
+  }
+}
+
+
+/* FontSize */
+.u-fs-m  { font-size: $font_size_m;  }
+// 数字が増える毎にサイズが大きくなる
+// ex: .u-fs-s1, .u-fs-l1
+@each $size in $font_size_s_arr {
+  .u-fs-s#{index($font_size_s_arr, $size)} { font-size: $size; }
+}
+@each $size in $font_size_l_arr {
+  .u-fs-l#{index($font_size_l_arr, $size)} { font-size: $size; }
+}
+
+
+/* FontFamily */
+.u-ff-l {
+  font-family: dake_light !important;
+  font-weight: 100 !important;
+}
+.u-ff-n {
+  font-family: dake_normal !important;
+  font-weight: normal !important;
+}
+.u-ff-b {
+  font-family: dake_bold !important;
+  font-weight: bold !important;
+}
+.u-ff-univ { font-family: "Droid Sans", "メイリオ", Meiryo, sans-serif !important; }
+.u-ff-sans { font-family: sans-serif !important; }
+.u-ff-serif { font-family: serif !important; }
+
+
+/* FontWeight, Style */
+.u-fwn { font-weight: normal !important; }
+.u-fwb { font-weight: bold !important; }
+.u-fsty-i { font-style: italic !important; }
+
+/* TextDecoration */
+.u-tdn { text-decoration: none !important; }
+.u-tdu { text-decoration: underline !important; }
+.u-tdl { text-decoration: line-through !important; }
+
+
+/* TextHighlight */
+.u-line-yellow {
+  background: linear-gradient(transparent 60%, #ffff39 0%);
+  line-height: 1rem;
+}
+
+.u-line-blue {
+  background: linear-gradient(transparent 60%, #61cefe 0%);
+  line-height: 1rem;
+}
+
+.u-line-pink {
+  background: linear-gradient(transparent 60%, #ff9ecd 0%);
+  line-height: 1rem;
+}
+
+.u-line-green {
+  background: linear-gradient(transparent 60%, #94fb98 0%);
+  line-height: 1rem;
+}

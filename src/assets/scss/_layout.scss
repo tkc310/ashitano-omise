@@ -51,8 +51,8 @@ $height-header: 48px;
       z-index: 100;
       bottom: 16px;
       right: 16px;
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       background: $bg-color-footer !important;
     }
     &-icon {}
@@ -73,5 +73,8 @@ $height-header: 48px;
   @include media-max('3col')  {
     width: 100%;
     padding: ($height-header + 16px) 0 32px;
+  }
+  @include media-max('2col')  {
+    padding: ($height-header + 16px) 16px 32px;
   }
 }

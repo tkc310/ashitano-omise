@@ -9,17 +9,21 @@
   "dependencies": {
     "@babel/polyfill": "7.4.4",
     "jump.js": "1.0.2",
-    "vue": "2.6.10"
+    "throttle-debounce": "^2.1.0",
+    "vue": "2.6.10",
+    "vue-property-decorator": "8.1.1"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/plugin-proposal-decorators": "7.4.4",
     "@babel/plugin-proposal-export-default-from": "7.2.0",
     "@babel/plugin-proposal-export-namespace-from": "7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "7.4.4",
     "@babel/plugin-proposal-optional-chaining": "7.2.0",
     "@babel/preset-env": "7.4.5",
     "@types/jump.js": "1.0.2",
+    "@types/throttle-debounce": "^1.1.1",
     "autoprefixer": "9.5.1",
     "babel-loader": "8.0.6",
     "compile-ejs-loader": "0.0.2",
@@ -33,7 +37,7 @@
     "node-sass": "4.12.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "postcss-loader": "3.0.0",
-    "precss": "^4.0.0",
+    "precss": "4.0.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "ts-loader": "6.0.1",

@@ -44,15 +44,15 @@
         -->
         <ul class="c-list">
           <% [
-            { id: 1, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_01.jpg' },
-            { id: 2, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_02.jpg' },
-            { id: 3, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_03.jpg' },
-            { id: 4, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_04.jpg' },
-            { id: 5, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_05.jpg' },
-            { id: 6, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_06.jpg' },
-            { id: 7, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_07.jpg' },
-            { id: 8, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_08.jpg' },
-            { id: 9, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風...', date: '2019.12.24', img: 'img_09.jpg' },
+            { id: 1, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_01.jpg' },
+            { id: 2, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_02.jpg' },
+            { id: 3, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_03.jpg' },
+            { id: 4, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_04.jpg' },
+            { id: 5, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_05.jpg' },
+            { id: 6, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_06.jpg' },
+            { id: 7, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_07.jpg' },
+            { id: 8, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_08.jpg' },
+            { id: 9, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_09.jpg' },
           ].forEach(function(shop) { %>
           <li class="c-list_item">
             <div class="c-list_img-wrap">
@@ -64,12 +64,12 @@
               <time class="c-list_date">
                 <%= shop.date %>
               </time>
-              <div class="c-list_title">
+              <h3 class="c-list_title">
                 <%= shop.title %>
-              </div>
-              <div class="c-list_excerpt">
+              </h3>
+              <p class="c-list_excerpt u-elps-3">
                 <%= shop.excerpt %>
-              </div>
+              </p>
               <div class="c-list_more">
                 <a class="c-list_more-link"
                    href="/shops/<%= shop.id %>">

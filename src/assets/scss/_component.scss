@@ -34,11 +34,13 @@
 .c-list {
   &_item {
     position: relative;
+    overflow: hidden;
     display: inline-block;
     width: 300px;
     height: 424px;
     margin-top: 30px;
     margin-right: 30px;
+    background: $bg-color-item;
     @include media-min('3col')  {
       &:nth-child(1),
       &:nth-child(2),
@@ -50,7 +52,7 @@
       }
     }
     @include media-max('3col')  {
-      margin-top: 20px;
+      margin-top: 16px;
       &:nth-child(1),
       &:nth-child(2) {
         margin-top: 0;
@@ -60,7 +62,8 @@
       }
     }
     @include media-max('2col')  {
-      margin-top: 20px !important;
+      width: 100%;
+      margin-top: 16px !important;
       margin-right: 0;
       &:nth-child(1) {
         margin-top: 0 !important;
@@ -84,7 +87,7 @@
   &_title,
   &_excerpt,
   &_more {
-    background: #fff;
+    background: rgba(255, 255, 255, .9);
   }
   &_date {
     font-family: $font-family-en;
@@ -101,6 +104,7 @@
     color: $color-font-title;
   }
   &_excerpt {
+    max-height: 60px;
     padding: 0 16px 16px;
     font-size: .8rem;
     letter-spacing: .03rem;
