@@ -1,135 +1,174 @@
-<!DOCTYPE html>
-<html lang="ja-JP">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<%
+const data_detail = require('./data/tmp_detail.json');
+const template_layout_top = require("./shared/_layout_top.ejs");
+%>
+<%- template_layout_top({ data: data_detail }) %>
 
-  <title></title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+<%#- include src/shared/_layout_top %>
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="">
-  <meta property="og:url" content="">
-
-  <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
-  <link rel="canonical" href="">
-
-  <style type="text/css" id="fpbf_ac93d8111_css">
-    @font-face {
-      font-family: 'fpbf_ac93d8111';
-      src: url('http://webfont-pub.weblife.me/fp-bf/3d4c80e6') format('woff');
-    }
-  </style>
-</head>
-<body>
-<div class="l-container">
-  <header class="l-header"></header>
-
-  <main class="l-content">
-    <div class="p-index">
-      <section class="p-index_shops">
-        <div class="p-index_shops-title">
-          <span class="c-icon_new"></span>
-          <span>新着のお店</span>
-        </div>
-        <ul class="c-list">
-          <li class="c-list_item">
-            <div class="c-list_img-wrap">
-              <img class="c-list_img" src="/assets/images/img_01.jpg" alt="">
-            </div>
-            <div class="c-list_caption">
-              <div class="c-list_date">
-                2019.12.24
-              </div>
-              <div class="c-list_title">
-                臨時休業のお知らせ
-              </div>
-              <div class="c-list_excerpt">
-                概要あのイーハトーヴォの透き通った風...
-              </div>
-              <div class="c-list_more">
-                <a class="c-list_more-link" href="">
-                  READ MORE >
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="c-list_item">
-            <div class="c-list_img-wrap">
-              <img class="c-list_img" src="/assets/images/img_01.jpg" alt="">
-            </div>
-            <div class="c-list_caption">
-              <div class="c-list_date">
-                2019.12.24
-              </div>
-              <div class="c-list_title">
-                臨時休業のお知らせ
-              </div>
-              <div class="c-list_excerpt">
-                概要あのイーハトーヴォの透き通った風...
-              </div>
-              <div class="c-list_more">
-                <a class="c-list_more-link" href="">
-                  READ MORE >
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="c-list_item">
-            <div class="c-list_img-wrap">
-              <img class="c-list_img" src="/assets/images/img_01.jpg" alt="">
-            </div>
-            <div class="c-list_caption">
-              <div class="c-list_date">
-                2019.12.24
-              </div>
-              <div class="c-list_title">
-                臨時休業のお知らせ
-              </div>
-              <div class="c-list_excerpt">
-                概要あのイーハトーヴォの透き通った風...
-              </div>
-              <div class="c-list_more">
-                <a class="c-list_more-link" href="">
-                  READ MORE >
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="c-list_item">
-            <div class="c-list_img-wrap">
-              <img class="c-list_img" src="/assets/images/img_01.jpg" alt="">
-            </div>
-            <div class="c-list_caption">
-              <div class="c-list_date">
-                2019.12.24
-              </div>
-              <div class="c-list_title">
-                臨時休業のお知らせ
-              </div>
-              <div class="c-list_excerpt">
-                概要あのイーハトーヴォの透き通った風...
-              </div>
-              <div class="c-list_more">
-                <a class="c-list_more-link" href="">
-                  READ MORE >
-                </a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
+<div class="p-shop">
+  <section class="p-shop_section">
+    <div class="p-shop_meta">
+      <time class="p-shop_meta-date" data-touch>
+        2017.12.24
+      </time>
     </div>
-  </main>
+    <div class="p-shop_img-wrap">
+      <img class="p-shop_img" src="/assets/images/detail_img_08.jpg" alt="">
+    </div>
+    <h2 class="p-shop_name c-heading-a">
+      臨時休業のお知らせ
+    </h2>
+    <p class="p-shop_excerpt">
+      あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそらあのイーハトーヴォのすきとおった風、
+      夏でも底に冷たさをもつ青いそらあのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
+      夏でも底に冷たさをもつ青いそらあのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
+    </p>
+    <div class="p-shop_sns"></div>
+  </section>
 
-  <footer class="l-footer"></footer>
+  <section class="p-shop_section">
+    <div class="p-shop_img-wrap">
+      <img class="p-shop_img" src="/assets/images/detail_img_08.jpg" alt="">
+    </div>
+
+    <p>
+      推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー
+      推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー
+      推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー推しメニュー
+    </p>
+  </section>
+
+  <section class="p-shop_section">
+    <div class="p-shop_img-wrap">
+      <img class="p-shop_img" src="/assets/images/detail_img_08.jpg" alt="">
+    </div>
+
+    <p>
+      スタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフ
+      スタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフ
+      スタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフスタッフ
+    </p>
+  </section>
+
+  <section class="p-shop_section">
+    <h3 class="c-heading-b">
+      店舗詳細
+    </h3>
+
+    <ul class="c-list-detail_list">
+      <li class="c-list-detail_item">
+        <div class="c-list-detail_icon">
+          <i class="material-icons">link</i>
+        </div>
+        <div class="c-list-detail_text">
+          <h4 class="c-list-detail_title">
+            リンク
+          </h4>
+          <p class="c-list-detail_content">
+            <a href="google.com" data-touch>ホームページ</a> /
+            <a href="google.com" data-touch>食べログ</a> /
+            <a href="google.com" data-touch>Facebook</a>
+          </p>
+        </div>
+      </li>
+      <li class="c-list-detail_item">
+        <div class="c-list-detail_icon">
+          <i class="material-icons">contact_phone</i>
+        </div>
+        <div class="c-list-detail_text">
+          <h4 class="c-list-detail_title">
+            連絡先
+          </h4>
+          <p class="c-list-detail_content">
+            TEL: 000-0000-0000<br />
+            FAX: 000-0000-0000<br />
+            MAIL: example@mail.com
+          </p>
+        </div>
+      </li>
+      <li class="c-list-detail_item">
+        <div class="c-list-detail_icon">
+          <i class="material-icons">cake</i>
+        </div>
+        <div class="c-list-detail_text">
+          <h4 class="c-list-detail_title">
+            開店日
+          </h4>
+          <p class="c-list-detail_content">
+            2017.12.24 (金) 12:00
+          </p>
+        </div>
+      </li>
+      <li class="c-list-detail_item">
+        <div class="c-list-detail_icon">
+          <i class="material-icons">date_range</i>
+        </div>
+        <div class="c-list-detail_text">
+          <h4 class="c-list-detail_title">
+            営業日
+          </h4>
+          <p class="c-list-detail_content">
+            2017.12.24 (金) 12:00
+          </p>
+        </div>
+      </li>
+      <li class="c-list-detail_item">
+        <div class="c-list-detail_icon">
+          <i class="material-icons">credit_card</i>
+        </div>
+        <div class="c-list-detail_text">
+          <h4 class="c-list-detail_title">
+            決済方法
+          </h4>
+          <p class="c-list-detail_content">
+            Visa / MasterCard / 現金 / LINE Pay
+          </p>
+        </div>
+      </li>
+      <li class="c-list-detail_item">
+        <div class="c-list-detail_icon">
+          <i class="material-icons">place</i>
+        </div>
+        <div class="c-list-detail_text">
+          <h4 class="c-list-detail_title">
+            アクセス
+          </h4>
+          <p class="c-list-detail_content">
+            東京都品川区五反田
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="p-shop_section">
+    <h3 class="c-heading-a">
+      Headingサンプル パターン - a
+    </h3>
+    <h3 class="c-heading-b">
+      Headingサンプル パターン - b
+    </h3>
+    <h3 class="c-heading-c">
+      Headingサンプル パターン - c
+    </h3>
+
+    <p>
+      <span class="u-line-pink">
+        下線サンプル パターン - pink
+      </span><br />
+      <span class="u-line-green">
+        下線サンプル パターン - green
+      </span><br />
+      <span class="u-line-yellow">
+        下線サンプル パターン - yellow
+      </span><br />
+      <span class="u-line-blue">
+        下線サンプル パターン - blue
+      </span><br />
+    </p>
+  </section>
+
 </div>
 
-<script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/app.js"></script>
-</body>
-</html>
+<%- include src/shared/_layout_bottom %>

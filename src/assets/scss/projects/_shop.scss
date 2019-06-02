@@ -1,0 +1,63 @@
+// project shop
+
+@import '../_variable';
+@import '../_mixin';
+
+.p-shop {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  text-align: left;
+
+  @include media-max('2.5col') {
+    width: 100%;
+    padding: 0 16px;
+  }
+  @include media-max('2col') {
+    padding: 0;
+  }
+  &_main {}
+  &_section {
+    margin-bottom: 32px;
+    @include media-max('2.5col') {
+      margin-bottom: 24px;
+    }
+  }
+  &_meta {
+    margin-bottom: 16px;
+    @include media-max('2.5col') {
+      margin-bottom: 8px;
+    }
+    &-date {
+      font-family: $font-family-en;
+      font-size: 1.5rem;
+      color: $color-font-heading-a;
+      letter-spacing: .1rem;
+      @include media-max('2.5col') {
+        font-size: 1rem;
+      }
+    }
+  }
+  &_img {
+    width: inherit;
+    height: inherit;
+    &-wrap {
+      width: inherit;
+      height: 566px;
+      margin-bottom: 24px;
+      @include media-max('2.5col') {
+        width: 100%;
+        height: auto;
+        margin-bottom: 8px;
+      }
+    }
+  }
+  &_name {
+    margin-bottom: 16px;
+    @include media-max('2.5col') {
+      margin-bottom: 8px;
+    }
+  }
+  &_excerpt {}
+  &_sns {}
+}

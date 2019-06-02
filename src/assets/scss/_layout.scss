@@ -30,6 +30,7 @@ $height-header: 48px;
 }
 
 .l-footer {
+  height: 32px;
   padding: 0 16px;
   background: $bg-color-footer;
   &_head {
@@ -66,7 +67,9 @@ $height-header: 48px;
 }
 
 .l-content {
+  overflow: hidden;
   width: 960px;
+  min-height: calc(100vh - 32px);
   padding: ($height-header + 32px) 0 56px;
   margin: 0 auto;
   text-align: center;

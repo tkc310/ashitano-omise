@@ -18,9 +18,10 @@ $breakpoint-min: (
   'tb-ho': 'screen and (min-width: 768px)',
   'tb-ve': 'screen and (min-width: 1024px)',
 
-  '1col': 'screen and (min-width: 321px)',
-  '2col': 'screen and (min-width: 641px)',
-  '3col': 'screen and (min-width: 961px)',
+  '1col': 'screen and (min-width: 320px)',
+  '2col': 'screen and (min-width: 640px)',
+  '2.5col': 'screen and (min-width: 800px)',
+  '3col': 'screen and (min-width: 960px)',
 ) !default;
 
 // max-width
@@ -39,15 +40,18 @@ $breakpoint-max: (
 
   '1col': 'screen and (max-width: 320px)',
   '2col': 'screen and (max-width: 640px)',
+  '2.5col': 'screen and (max-width: 800px)',
   '3col': 'screen and (max-width: 960px)',
 ) !default;
 
+// $breakpointを超える場合
 @mixin media-min($breakpoint: md) {
   @media #{map-get($breakpoint-min, $breakpoint)} {
     @content;
   }
 }
 
+// $breakpoint未満の場合
 @mixin media-max($breakpoint: md) {
   @media #{map-get($breakpoint-max, $breakpoint)} {
     @content;
@@ -112,4 +116,17 @@ $breakpoint-max: (
 
 @include media-factory-max('.is-hide-max') {
   display: none !important;
+}
+
+// hover
+@mixin hover() {
+  &.is-touch {
+    @content;
+  }
+  // 641px以上はhover有効
+  @include media-min('2col') {
+    &:hover {
+      @content;
+    }
+  }
 }

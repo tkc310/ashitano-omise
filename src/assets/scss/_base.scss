@@ -1,11 +1,28 @@
 // base
 
 @import './_variable';
+@import './_mixin';
 
 html, body {
   font-family: $font-family-base;
   color: $color-font-base;
   background: $bg-color-base;
+}
+
+a {
+  color: $color-font-base;
+  text-decoration: underline;
+  @include hover() {
+    opacity: .8;
+    text-decoration: none;
+  }
+}
+
+p {
+  letter-spacing: .035rem;
+  @include media-max('2col') {
+    font-size: .85rem;
+  }
 }
 
 ul {

@@ -1,99 +1,48 @@
-<!DOCTYPE html>
-<html lang="ja-JP">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<%
+  const data_index = require('./data/index.json');
+  const template_layout_top = require("./shared/_layout_top.ejs");
+%>
+<%- template_layout_top({ data: data_index }) %>
 
-  <!-- SEO start -->
-  <title></title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+<%#- include src/shared/_layout_top %>
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="">
-  <meta property="og:url" content="">
-
-  <link rel="canonical" href="">
-  <!-- SEO end -->
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
-  <!-- Google Material design icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
-</head>
-<body>
-<div class="l-container" id="js-container">
-  <header class="l-header">
-    <h1 class="l-header_logo">Ashitano Omise Tokyo</h1>
-  </header>
-
-  <main class="l-content">
-    <div class="p-index">
-      <section class="p-index_shops">
-        <!-- section title
-        <div class="p-index_shops-title c-heading">
-          <i class="c-heading_icon material-icons">fiber_new</i>
-          <span class="c-heading_text">LATED SHOPS</span>
+<div class="p-index">
+  <section class="p-index_shops">
+    <!-- section title
+    <div class="p-index_shops-title c-heading">
+      <i class="c-heading_icon material-icons">fiber_new</i>
+      <span class="c-heading_text">LATED SHOPS</span>
+    </div>
+    -->
+    <ul class="c-list-thumb">
+      <% data_index.shops.forEach(function(shop) { %>
+      <li class="c-list-thumb_item">
+        <div class="c-list-thumb_img-wrap">
+          <img class="c-list-thumb_img"
+               src="/assets/images/<%= shop.img %>"
+               alt="<%= shop.title %>">
         </div>
-        -->
-        <ul class="c-list">
-          <% [
-            { id: 1, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_01.jpg' },
-            { id: 2, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_02.jpg' },
-            { id: 3, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_03.jpg' },
-            { id: 4, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_04.jpg' },
-            { id: 5, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_05.jpg' },
-            { id: 6, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_06.jpg' },
-            { id: 7, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_07.jpg' },
-            { id: 8, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_08.jpg' },
-            { id: 9, title: '臨時休業のお知らせ', excerpt: '概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風概要あのイーハトーヴォの透き通った風', date: '2019.12.24', img: 'img_09.jpg' },
-          ].forEach(function(shop) { %>
-          <li class="c-list_item">
-            <div class="c-list_img-wrap">
-              <img class="c-list_img"
-                   src="/assets/images/<%= shop.img %>"
-                   alt="<%= shop.title %>">
-            </div>
-            <div class="c-list_desc">
-              <time class="c-list_date">
-                <%= shop.date %>
-              </time>
-              <h3 class="c-list_title">
-                <%= shop.title %>
-              </h3>
-              <p class="c-list_excerpt u-elps-3">
-                <%= shop.excerpt %>
-              </p>
-              <div class="c-list_more">
-                <a class="c-list_more-link"
-                   href="/shops/<%= shop.id %>">
-                  READ MORE >
-                </a>
-              </div>
-            </div>
-          </li>
-          <% }); %>
-        </ul>
-      </section>
-    </div>
-  </main>
-
-  <footer class="l-footer">
-    <div class="l-footer_head">
-      <p class="l-footer_copyright">
-        Ashitano Omise Tokyo
-      </p>
-      <div id="vue-btn-top"></div>
-    </div>
-  </footer>
+        <div class="c-list-thumb_desc">
+          <time class="c-list-thumb_date">
+            <%= shop.date %>
+          </time>
+          <h3 class="c-list-thumb_title">
+            <%= shop.title %>
+          </h3>
+          <p class="c-list-thumb_excerpt u-elps-3">
+            <%= shop.excerpt %>
+          </p>
+          <div class="c-list-thumb_more">
+            <a class="c-list-thumb_more-link"
+               href="/tmp_detail.html">
+              READ MORE >
+            </a>
+          </div>
+        </div>
+      </li>
+      <% }); %>
+    </ul>
+  </section>
 </div>
 
-<script src="/assets/js/app.js"></script>
-</body>
-</html>
+<%- include src/shared/_layout_bottom %>

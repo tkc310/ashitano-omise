@@ -6,7 +6,9 @@ $color-font-date: #757575;
 $color-font-title: #474747;
 $color-font-excerpt: #898f94;
 $color-font-link: $color-font-base;
-$color-font-heading-1: #afafaf;
+$color-font-heading-section: #afafaf;
+$color-font-heading-a: #333333;
+$color-font-heading-b: #353535;
 
 
 // bg-color
@@ -14,10 +16,14 @@ $bg-color-base: #fff;
 $bg-color-header: $bg-color-base;
 $bg-color-footer: #1a1a1a;
 $bg-color-item: #1a1a1a;
+$bg-color-heading: #f8f8f8;
 
 
 // border-color
-$border-color-header: #e5e9eb;
+$border-color-base: #e5e9eb;
+$border-color-header: $border-color-base;
+$border-color-list: $border-color-base;
+$border-color-heading: #414141;
 
 // font-family
 $font-family-base: 'Noto Sans JP', sans-serif;

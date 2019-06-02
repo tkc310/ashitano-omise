@@ -35,16 +35,26 @@
 
     mounted(): void {
       const _this = this;
-      window.addEventListener('scroll', debounce(500, _this.toggleOpen), true);
+      if (_this.isPC()) {
+        _this.isShow = true;
+      } else {
+        window.addEventListener('scroll', debounce(500, _this.toggleOpen), true);
+      }
     }
 
     destroyed(): void {
       const _this = this;
-      window.removeEventListener('scroll', _this.toggleOpen, true);
+      !_this.isPC() &&
+        window.removeEventListener('scroll', _this.toggleOpen, true);
+    }
+
+    // 641px以上の場合
+    isPC() {
+      return (window.innerWidth > 640);
     }
 
     toggleOpen(): void {
-      this.isShow = !!(window.pageYOffset >= 100);
+      this.isShow = (window.pageYOffset >= 100);
     }
 
     handleClick(): void {

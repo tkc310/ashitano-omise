@@ -13,29 +13,29 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
+const pageConfig = require('./page_config.json');
+
 module.exports = (env, argv) => {
   const IS_DEVELOPMENT = argv.mode === 'development';
 
-  const pagesHtmlPlugins = [
-    { name: 'index', type: 'single' },
-    { name: 'tmp_detail', type: 'single' },
-    { name: 'shops', type: 'collection', id: 1 },
-  ].map(page => {
-    const {
-      type,
-      name,
-      id = null
-    } = page;
+  const pagesHtmlPlugins = pageConfig.pages
+    .map(page => {
+      const {
+        type,
+        name,
+        id = null,
+        params = {}
+      } = page;
 
-    // TODO: srcはjson化する
-    const src =  type === 'single' ? name : `${name}/${id}/index`;
-    const dist = type === 'single' ? name : `${name}/${id}/index`;
+      // TODO: srcはjson化する
+      const src =  type === 'single' ? name : `${name}/${id}/index`;
+      const dist = type === 'single' ? name : `${name}/${id}/index`;
 
-    return new HtmlWebpackPlugin({
-      template: `./src/${src}.ejs`,
-      filename: `./${dist}.html`,
+      return new HtmlWebpackPlugin({
+        template: `./src/${src}.ejs`,
+        filename: `./${dist}.html`,
+      });
     });
-  });
 
   const tsEmtries = glob.sync('./src/assets/ts/**/*.*')
     .map(file => {
@@ -218,14 +218,18 @@ module.exports = (env, argv) => {
         {
           test: /\.ejs$/,
           exclude: /(node_modules)/,
-          loader: 'compile-ejs-loader',
-          // https://github.com/mde/ejs
-          options: {
-            'htmlmin': true,
-            'htmlminOptions': {
-              removeComments: true
+          use: [
+            {
+              loader: 'ejs-compiled-loader',
+              // https://github.com/mde/ejs
+              options: {
+                'htmlmin': true,
+                'htmlminOptions': {
+                  removeComments: true
+                }
+              }
             }
-          }
+          ]
         },
       ]
     },

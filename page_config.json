@@ -1,0 +1,7 @@
+{
+	"pages": [
+		{ "name": "index",      "type": "single" },
+		{ "name": "tmp_detail", "type": "single" },
+		{ "name": "shops",      "type": "collection", "id": 1 }
+	]
+}
