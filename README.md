@@ -19,7 +19,7 @@ $ npm i
 
 # development by webpack-dev-server (HMR)
 $ npm run watch
-$ open http://0.0.0.0:1111
+$ open http://0.0.0.0:1234
 
 # production build
 $ npm run release
