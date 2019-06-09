@@ -19,7 +19,7 @@ $ npm i
 
 # development by webpack-dev-server (HMR)
 $ npm run watch
-$ open http://0.0.0.0:1111
+$ open http://0.0.0.0:1234
 
 # production build
 $ npm run release
@@ -53,3 +53,31 @@ $ git push origin release-v0.x
 - 1col: 320px
 - 2col: 640px
 - 3col: 960px
+
+## 記事の追加
+
+#### 1. 画像追加
+`src/assets/images/<id>/` ディレクトリ作成
+- 一覧用
+`<id>/top.jpg`
+- 詳細 - 内装
+`<id>/inner.jpg`
+- 詳細 - メニュー
+`<id>/menu.jpg`
+- 詳細 - スタッフ
+`<id>/staff.jpg`
+
+#### 2. 一覧の情報追加
+`src/data/index.json` を編集
+
+#### 3. 詳細の情報追加
+`src/data/shops/<id>.json` を作成、編集
+
+#### 4. ページ生成用の情報追記
+`page_config.json` を編集
+
+#### 5. 確認する
+
+```
+$ npm run watch
+```

@@ -1,7 +1,12 @@
 {
+	"global": {
+		"host": "https://ashitano-omise.ga"
+	},
 	"pages": [
-		{ "name": "index",      "type": "single" },
-		{ "name": "tmp_detail", "type": "single" },
-		{ "name": "shops",      "type": "collection", "id": 1 }
+		{ "name": "index", "type": "single" },
+
+		{ "name": "shops", "type": "collection", "id": 1 },
+		{ "name": "shops", "type": "collection", "id": 2 },
+		{ "name": "shops", "type": "collection", "id": 3 }
 	]
 }
