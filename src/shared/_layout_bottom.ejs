@@ -1,8 +1,87 @@
 </main>
-
-<%- include _footer %>
+<%- include src/shared/_footer %>
 </div>
 
 <script src="/assets/js/app.js"></script>
+
+<!--
+MEMO: JSON-LD
+ref: https://qiita.com/narumana/items/b66969b80cce848b2ddf
+https://webty.jp/staffblog/production/post-629/
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Ashitano Omise Tokyo",
+  "url": "https://ashitano-omise.ga"
+}
+</script>
+
+<% if (name === 'index') { %>
+  <%
+  const itemListElement = data.shops.reverse().map(function(shop, idx) {
+    return {
+      "@type": "ListItem",
+      "position": idx + 1,
+      "url": global.host + '/shops/' + shop.id
+    };
+  });
+  %>
+  <script type="application/ld+json">
+  {
+    "@context":"http://schema.org",
+    "@type":"ItemList",
+    "itemListElement": <%- JSON.stringify(itemListElement) %>
+  }
+  </script>
+<% } %>
+
+<% if (type === 'collection') { %>
+  <%
+  const images = ['top', 'inner', 'menu', 'staff'].map(function(item, idx) {
+    return global.host + '/assets/images/shops/' + data.id + '/' + item + '.jpg';
+  });
+  %>
+<!--
+TODO: 店舗ジャンル
+-->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "<%= data_common.title %>",
+    "image": <%- JSON.stringify(images) %>,
+    "telephone": "<%= data.detail.contact.tel %>"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "<%= global.host %>/",
+          "name": "TOP"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "<%= global.host %>/shops/<%= data.id  %>",
+          "name": "<%= data_common.title %>"
+        }
+      }
+    ]
+  }
+  </script>
+<% } %>
+
 </body>
 </html>

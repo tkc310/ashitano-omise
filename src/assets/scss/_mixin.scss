@@ -119,9 +119,16 @@ $breakpoint-max: (
 }
 
 // hover
-@mixin hover() {
+@mixin hover($highlight: false, $userSelect: false) {
   &.is-touch {
     @content;
+    @if $userSelect == false {
+      user-select: none;
+    }
+    @if $highlight == false {
+      -webkit-tap-highlight-color: rgba(#000, 0);
+      appearance: none;
+    }
   }
   // 641px以上はhover有効
   @include media-min('2col') {

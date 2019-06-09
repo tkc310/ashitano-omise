@@ -15,6 +15,16 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const pageConfig = require('./page_config.json');
 
+// 画像の出力ディレクトリ取得
+const getImagePath = (name, _path) => {
+  const paths = _path.split('/');
+  // ex. shops
+  const typeDir = paths[paths.length - 3];
+  // id
+  const idDir = paths[paths.length - 2];
+  return `./assets/images/${typeDir}/${idDir}/` + name
+};
+
 module.exports = (env, argv) => {
   const IS_DEVELOPMENT = argv.mode === 'development';
 
@@ -27,22 +37,29 @@ module.exports = (env, argv) => {
         params = {}
       } = page;
 
-      // TODO: srcはjson化する
-      const src =  type === 'single' ? name : `${name}/${id}/index`;
+      // TODO: templateからjson,images_dir作るgenerator
+      const src =  type === 'single' ? name : `${name}/template`;
       const dist = type === 'single' ? name : `${name}/${id}/index`;
 
       return new HtmlWebpackPlugin({
         template: `./src/${src}.ejs`,
         filename: `./${dist}.html`,
+        templateParameters: {
+          type,
+          name,
+          id,
+          params,
+          global: pageConfig.global
+        }
       });
     });
 
-  const tsEmtries = glob.sync('./src/assets/ts/**/*.*')
+  const tsEntries = glob.sync('./src/assets/ts/**/*.*')
     .map(file => {
       return file;
     });
 
-  const scssEmtries = glob.sync('./src/assets/scss/**/*.*')
+  const scssEntries = glob.sync('./src/assets/scss/**/*.*')
     .map(file => {
       return file;
     });
@@ -136,9 +153,9 @@ module.exports = (env, argv) => {
   return {
     mode: argv.mode,
 
-    entry: tsEmtries
+    entry: tsEntries
       .concat(imagesEntries)
-      .concat(scssEmtries),
+      .concat(scssEntries),
     output: {
       path: path.resolve(__dirname, './dist'),
       filename: './assets/js/app.js',
@@ -206,12 +223,8 @@ module.exports = (env, argv) => {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: (name, _path) => {
-                return './assets/images/' + name
-              },
-              publicPath: (name, _path) => {
-                return './assets/images/' + name
-              }
+              outputPath: getImagePath,
+              publicPath: getImagePath,
             }
           },
         },

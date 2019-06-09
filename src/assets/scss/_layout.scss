@@ -23,6 +23,9 @@ $height-header: 48px;
     font-size: .8rem;
     line-height: 2em;
     letter-spacing: .3rem;
+    &-link {
+      text-decoration: none;
+    }
   }
   @include media-max('2col') {
     padding: 0 16px;
@@ -39,10 +42,14 @@ $height-header: 48px;
   }
   &_copyright {
     font-family: $font-family-en;
-    font-size: .8rem;
-    line-height: 2em;
+    font-size: .75rem;
+    line-height: 2.5em;
     letter-spacing: .3rem;
     color: #fff;
+    text-decoration: none;
+    @include media-max('2col') {
+      transform: scale(.85) translateX(-32px);
+    }
   }
   &_btn-top {
     margin-left: auto;

@@ -1,10 +1,13 @@
 <%
   const data_index = require('./data/index.json');
-  const template_layout_top = require("./shared/_layout_top.ejs");
+  const template_layout_top = require('./shared/_layout_top.ejs');
 %>
-<%- template_layout_top({ data: data_index }) %>
-
-<%#- include src/shared/_layout_top %>
+<%- template_layout_top({
+  data: data_index,
+  data_common: data_index,
+  type: type,
+  global: global
+}) %>
 
 <div class="p-index">
   <section class="p-index_shops">
@@ -15,13 +18,17 @@
     </div>
     -->
     <ul class="c-list-thumb">
-      <% data_index.shops.forEach(function(shop) { %>
+      <% data_index.shops.reverse().forEach(function(shop) { %>
       <li class="c-list-thumb_item">
-        <div class="c-list-thumb_img-wrap">
+        <a
+          class="c-list-thumb_img-wrap"
+          href="/shops/<%= shop.id %>"
+          data-touch
+        >
           <img class="c-list-thumb_img"
-               src="/assets/images/<%= shop.img %>"
+               src="/assets/images/shops/<%= shop.id %>/top.jpg"
                alt="<%= shop.title %>">
-        </div>
+        </a>
         <div class="c-list-thumb_desc">
           <time class="c-list-thumb_date">
             <%= shop.date %>
@@ -33,8 +40,11 @@
             <%= shop.excerpt %>
           </p>
           <div class="c-list-thumb_more">
-            <a class="c-list-thumb_more-link"
-               href="/tmp_detail.html">
+            <a
+              class="c-list-thumb_more-link"
+              href="/shops/<%= shop.id %>"
+              data-touch
+            >
               READ MORE >
             </a>
           </div>
@@ -45,4 +55,14 @@
   </section>
 </div>
 
-<%- include src/shared/_layout_bottom %>
+<%
+const template_layout_bottom = require('./shared/_layout_bottom.ejs');
+%>
+
+<%- template_layout_bottom({
+  data: data_index,
+  data_common: data_index,
+  type: type,
+  name: name,
+  global: global
+}) %>

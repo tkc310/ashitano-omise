@@ -46,7 +46,8 @@
     @include heading-common();
 
     border-bottom: 2px solid $border-color-heading;
-    padding-bottom: 4px;
+    padding-bottom: 8px;
+    margin-bottom: 24px !important;
   }
 
   // 左線、背景付き h4~
@@ -66,9 +67,51 @@
       vertical-align: middle;
     }
   }
+
+  &--small {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    @include media-max('2col') {
+      font-size: .9rem;
+    }
+  }
+  &--medium {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    @include media-max('2col') {
+      font-size: .95rem;
+      margin-bottom: 8px;
+    }
+  }
 }
 
 .c-list {
+  // パンくず
+  &-bc {
+    text-align: left;
+    width: 800px;
+    margin: 0 auto 24px;
+    @include media-max('2col') {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    &_item {
+      display: inline-block;
+      font-size: .85rem;
+      @include media-max('2col') {
+        font-size: .75rem;
+      }
+      &:after {
+        content: '>';
+        margin: 0 3px;
+      }
+      &:last-child {
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
   &-detail {
     &_item {
       display: table;
@@ -141,8 +184,15 @@
     }
     &_img {
       width: 100%;
+      transition: transform 300ms;
       &-wrap {
         width: inherit;
+        text-decoration: none;
+        @include hover() {
+          img {
+            transform: scale(1.05);
+          }
+        }
       }
     }
     &_desc {

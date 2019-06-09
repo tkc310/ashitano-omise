@@ -3,10 +3,23 @@
 <%
 const template_head = require("./_head.ejs");
 %>
-<%- template_head(data) %>
+<%- template_head({
+  data: data,
+  global: global
+}) %>
 
 <body>
 <div class="l-container" id="js-container">
   <%- include src/shared/_header %>
 
   <main class="l-content">
+    <% if (type === 'collection') { %>
+    <ul class="c-list-bc">
+      <li class="c-list-bc_item">
+        <a href="/">TOP</a>
+      </li>
+      <li class="c-list-bc_item">
+        <span><%= data_common.title %></span>
+      </li>
+    </ul>
+    <% } %>

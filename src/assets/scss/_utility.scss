@@ -83,9 +83,9 @@
 
 
 /* Spacing margin, padding */
-// 0-30pxまで5px間隔で生成
-@for $i from 0 through 30 {
-  @if ($i % 5 == 0) {
+// 0-40pxまで8px間隔で生成
+@for $i from 0 through 40 {
+  @if ($i % 8 == 0) {
     $value_str: #{$i}px;
     @if ($i == 0) {
       $value_str: #{$i};
@@ -95,11 +95,11 @@
     .u-mr#{$i} { margin-right : #{$value_str} !important; }
     .u-mb#{$i} { margin-bottom: #{$value_str} !important; }
     .u-ml#{$i} { margin-left  : #{$value_str} !important; }
-    .u-p#{$i}  { margin       : #{$value_str} !important; }
-    .u-pt#{$i} { margin-top   : #{$value_str} !important; }
-    .u-pr#{$i} { margin-right : #{$value_str} !important; }
-    .u-pb#{$i} { margin-bottom: #{$value_str} !important; }
-    .u-pl#{$i} { margin-left  : #{$value_str} !important; }
+    .u-p#{$i}  { padding       : #{$value_str} !important; }
+    .u-pt#{$i} { padding-top   : #{$value_str} !important; }
+    .u-pr#{$i} { padding-right : #{$value_str} !important; }
+    .u-pb#{$i} { padding-bottom: #{$value_str} !important; }
+    .u-pl#{$i} { padding-left  : #{$value_str} !important; }
   }
 }
 
@@ -117,22 +117,8 @@
 
 
 /* FontFamily */
-.u-ff-l {
-  font-family: dake_light !important;
-  font-weight: 100 !important;
-}
-.u-ff-n {
-  font-family: dake_normal !important;
-  font-weight: normal !important;
-}
-.u-ff-b {
-  font-family: dake_bold !important;
-  font-weight: bold !important;
-}
-.u-ff-univ { font-family: "Droid Sans", "メイリオ", Meiryo, sans-serif !important; }
-.u-ff-sans { font-family: sans-serif !important; }
-.u-ff-serif { font-family: serif !important; }
-
+.u-ff-ja { font-family: $font-family-ja !important; }
+.u-ff-en { font-family: $font-family-en !important; }
 
 /* FontWeight, Style */
 .u-fwn { font-weight: normal !important; }
