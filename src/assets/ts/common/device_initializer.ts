@@ -41,11 +41,15 @@ export default class DeviceInitializer {
     });
   }
 
-  private addTouchClass(node: HTMLElement): void {
+  private addTouchClass(node: HTMLElement): boolean {
     node && node.classList.add('is-touch');
+    // event kill
+    return false;
   }
 
-  private removeTouchClass(node: HTMLElement): void {
+  private removeTouchClass(node: HTMLElement): boolean {
     node && node.classList.remove('is-touch');
+    // event kill
+    return false;
   }
 }

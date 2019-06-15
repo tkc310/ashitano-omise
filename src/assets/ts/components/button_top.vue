@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="scss" scoped>
   .fade {
     &-enter-active,
     &-leave-active {
@@ -9,6 +9,10 @@
       opacity: 0;
     }
   }
+
+  .is-touch {
+    opacity: .8;
+  }
 </style>
 
 <template>
@@ -16,7 +20,10 @@
     <button
       v-if="isShow"
       class="l-footer_btn-top c-btn"
+      :class="isTouch ? 'is-touch' : ''"
       @click="handleClick"
+      @touchstart="toggleTouch(true)"
+      @touchend="toggleTouch(false)"
     >
       <i class="l-footer_btn-top-icon c-btn_icon material-icons">arrow_drop_up</i>
       <span class="l-footer_btn-top-text c-btn_text">BACK TO TOP</span>
@@ -32,6 +39,7 @@
   @Component
   export default class ButtonTop extends Vue {
     isShow: boolean = false;
+    isTouch: boolean = false;
 
     mounted(): void {
       const _this = this;
@@ -55,6 +63,10 @@
 
     toggleOpen(): void {
       this.isShow = (window.pageYOffset >= 100);
+    }
+
+    toggleTouch(isTouch: boolean): void {
+      this.isTouch = isTouch;
     }
 
     handleClick(): void {

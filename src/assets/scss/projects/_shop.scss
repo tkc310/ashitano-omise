@@ -60,4 +60,10 @@
   }
   &_excerpt {}
   &_sns {}
+  &_map {
+    height: calc(800px / 1.414);
+    @include media-max('2col') {
+      height: calc((100vw - 16px) / 1.414);
+    }
+  }
 }

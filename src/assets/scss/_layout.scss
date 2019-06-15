@@ -33,20 +33,27 @@ $height-header: 48px;
 }
 
 .l-footer {
-  height: 32px;
-  padding: 0 16px;
+  padding: 8px 16px;
   background: $bg-color-footer;
   &_head {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
   }
   &_copyright {
     font-family: $font-family-en;
     font-size: .75rem;
-    line-height: 2.5em;
     letter-spacing: .3rem;
     color: #fff;
     text-decoration: none;
+    &-icon {
+      font-size: .9rem;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+    &-text {
+      vertical-align: middle;
+    }
     @include media-max('2col') {
       transform: scale(.85) translateX(-32px);
     }
@@ -57,7 +64,7 @@ $height-header: 48px;
     @include media-max('2col') {
       position: fixed;
       z-index: 100;
-      bottom: 16px;
+      bottom: 24px;
       right: 16px;
       width: 48px;
       height: 48px;
@@ -69,6 +76,14 @@ $height-header: 48px;
       @include media-max('2col') {
         display: none !important;
       }
+    }
+  }
+  &_body {}
+  &_link {
+    color: #fff;
+    font-size: .75rem;
+    @include media-max('2col') {
+      font-size: .6rem;
     }
   }
 }

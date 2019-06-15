@@ -3,9 +3,9 @@ const data_index = require('../data/index.json');
 const data_detail = require('../data/shops/' + id + '.json');
 const data_common = data_index.shops.find(function(item) { return item.id === data_detail.id; });
 const published_at = data_common.date;
-const name = data_common.title;
+const shop_name = data_common.title;
 
-const template_layout_top = require("../shared/_layout_top.ejs");
+const template_layout_top = require('../shared/_layout_top.ejs');
 %>
 <%- template_layout_top({
   data: data_detail,
@@ -14,34 +14,36 @@ const template_layout_top = require("../shared/_layout_top.ejs");
   global: global
 }) %>
 
-<div class="p-shop">
-  <section class="p-shop_section">
-    <div class="p-shop_meta">
-      <time class="p-shop_meta-date">
+<div class='p-shop'>
+  <section id='hash-concept'
+           class='p-shop_section'>
+    <div class='p-shop_meta'>
+      <time class='p-shop_meta-date'>
         <%= published_at %>
       </time>
     </div>
-    <div class="p-shop_img-wrap">
-      <img class="p-shop_img"
-           src="/assets/images/shops/<%= id %>/inner.jpg"
-           alt="店内 | <%= name %>">
+    <div class='p-shop_img-wrap'>
+      <img class='p-shop_img'
+           src='/assets/images/shops/<%= id %>/inner.jpg'
+           alt='店内 | <%= shop_name %>'>
     </div>
-    <h2 class="p-shop_name c-heading-a">
-      <%= name %>
+    <h2 class='p-shop_name c-heading-a'>
+      <%= shop_name %>
     </h2>
-    <p class="p-shop_excerpt">
+    <p class='p-shop_excerpt'>
       <%- data_detail.inner %>
     </p>
-    <div class="p-shop_sns"></div>
+    <div class='p-shop_sns'></div>
   </section>
 
-  <section class="p-shop_section">
-    <div class="p-shop_img-wrap">
-      <img class="p-shop_img"
-           src="/assets/images/shops/<%= id %>/menu.jpg"
-           alt="メニュー | <%= name %>">
+  <section id='hash-menu'
+           class='p-shop_section'>
+    <div class='p-shop_img-wrap'>
+      <img class='p-shop_img'
+           src='/assets/images/shops/<%= id %>/menu.jpg'
+           alt='メニュー | <%= shop_name %>'>
     </div>
-    <h3 class="c-heading-a c-heading--medium">
+    <h3 class='c-heading-a c-heading--medium'>
       <%= data_detail.menu_title %>
     </h3>
 
@@ -50,13 +52,14 @@ const template_layout_top = require("../shared/_layout_top.ejs");
     </p>
   </section>
 
-  <section class="p-shop_section">
-    <div class="p-shop_img-wrap">
-      <img class="p-shop_img"
-           src="/assets/images/shops/<%= id %>/staff.jpg"
-           alt="スタッフ | <%= name %>">
+  <section id='hash-staff'
+           class='p-shop_section'>
+    <div class='p-shop_img-wrap'>
+      <img class='p-shop_img'
+           src='/assets/images/shops/<%= id %>/staff.jpg'
+           alt='スタッフ | <%= shop_name %>'>
     </div>
-    <h3 class="c-heading-a c-heading--medium">
+    <h3 class='c-heading-a c-heading--medium'>
       <%= data_detail.staff_title %>
     </h3>
 
@@ -65,30 +68,30 @@ const template_layout_top = require("../shared/_layout_top.ejs");
     </p>
   </section>
 
-  <section class="p-shop_section">
-    <h3 class="c-heading-b c-heading--medium">
+  <section class='p-shop_section'>
+    <h3 class='c-heading-b c-heading--medium'>
       店舗詳細
     </h3>
 
-    <ul class="c-list-detail_list">
+    <ul class='c-list-detail_list'>
       <% const links = data_detail.detail.links; %>
       <% if (links.length) { %>
-      <li class="c-list-detail_item">
-        <div class="c-list-detail_icon">
-          <i class="material-icons">link</i>
+      <li class='c-list-detail_item'>
+        <div class='c-list-detail_icon'>
+          <i class='material-icons'>link</i>
         </div>
-        <div class="c-list-detail_text">
-          <h4 class="c-list-detail_title">
+        <div class='c-list-detail_text'>
+          <h4 class='c-list-detail_title'>
             リンク
           </h4>
-          <p class="c-list-detail_content">
+          <p class='c-list-detail_content'>
             <% links.forEach(function (link, idx) { %>
-            <a href="<%= link.url %>"
-               target="_blank"
+            <a href='<%= link.url %>'
+               target='_blank'
                data-touch
             ><%= link.title %></a>
             <% if ((links.length - 1) !== idx) { %>
-            /
+            <span class='u-m4'>/</span>
             <% } %>
             <% }); %>
           </p>
@@ -98,15 +101,15 @@ const template_layout_top = require("../shared/_layout_top.ejs");
 
       <% const contact = data_detail.detail.contact; %>
       <% if (contact && Object.keys(contact).length) { %>
-      <li class="c-list-detail_item">
-        <div class="c-list-detail_icon">
-          <i class="material-icons">contact_phone</i>
+      <li class='c-list-detail_item'>
+        <div class='c-list-detail_icon'>
+          <i class='material-icons'>contact_phone</i>
         </div>
-        <div class="c-list-detail_text">
-          <h4 class="c-list-detail_title">
+        <div class='c-list-detail_text'>
+          <h4 class='c-list-detail_title'>
             連絡先
           </h4>
-          <p class="c-list-detail_content">
+          <p class='c-list-detail_content'>
             <% if (contact.tel) { %>
             TEL: <%= contact.tel %><br/>
             <% } %>
@@ -122,44 +125,72 @@ const template_layout_top = require("../shared/_layout_top.ejs");
       <% } %>
 
       <% const date = data_detail.detail.date; %>
-      <li class="c-list-detail_item">
-        <div class="c-list-detail_icon">
-          <i class="material-icons">cake</i>
+      <li class='c-list-detail_item'>
+        <div class='c-list-detail_icon'>
+          <i class='material-icons'>cake</i>
         </div>
-        <div class="c-list-detail_text">
-          <h4 class="c-list-detail_title">
+        <div class='c-list-detail_text'>
+          <h4 class='c-list-detail_title'>
             開店日
           </h4>
-          <p class="c-list-detail_content">
+          <p class='c-list-detail_content'>
             <%= date.release %>
           </p>
         </div>
       </li>
 
-      <li class="c-list-detail_item">
-        <div class="c-list-detail_icon">
-          <i class="material-icons">date_range</i>
+      <li class='c-list-detail_item'>
+        <div class='c-list-detail_icon'>
+          <i class='material-icons'>date_range</i>
         </div>
-        <div class="c-list-detail_text">
-          <h4 class="c-list-detail_title">
-            営業日
+        <div class='c-list-detail_text'>
+          <h4 class='c-list-detail_title'>
+            営業日・営業時間
           </h4>
-          <p class="c-list-detail_content">
+          <p class='c-list-detail_content'>
             <%= date.working %>
           </p>
         </div>
       </li>
 
-      <% const payments = data_detail.detail.payments; %>
-      <li class="c-list-detail_item">
-        <div class="c-list-detail_icon">
-          <i class="material-icons">credit_card</i>
+      <li class='c-list-detail_item'>
+        <div class='c-list-detail_icon'>
+          <i class='material-icons'>work_off</i>
         </div>
-        <div class="c-list-detail_text">
-          <h4 class="c-list-detail_title">
+        <div class='c-list-detail_text'>
+          <h4 class='c-list-detail_title'>
+            定休日
+          </h4>
+          <p class='c-list-detail_content'>
+            <%= date.closing %>
+          </p>
+        </div>
+      </li>
+
+      <li class='c-list-detail_item'>
+        <div class='c-list-detail_icon'>
+          <i class='material-icons'>money</i>
+        </div>
+        <div class='c-list-detail_text'>
+          <h4 class='c-list-detail_title'>
+            平均予算
+          </h4>
+          <p class='c-list-detail_content'>
+            <%= data_detail.detail.price_range %>
+          </p>
+        </div>
+      </li>
+
+      <% const payments = data_detail.detail.payments; %>
+      <li class='c-list-detail_item'>
+        <div class='c-list-detail_icon'>
+          <i class='material-icons'>credit_card</i>
+        </div>
+        <div class='c-list-detail_text'>
+          <h4 class='c-list-detail_title'>
             決済方法
           </h4>
-          <p class="c-list-detail_content">
+          <p class='c-list-detail_content'>
             <% payments.forEach(function (method, idx) { %>
             <%= method %>
             <% if ((payments.length - 1) !== idx) { %>
@@ -171,15 +202,15 @@ const template_layout_top = require("../shared/_layout_top.ejs");
       </li>
 
       <% const place = data_detail.detail.place; %>
-      <li class="c-list-detail_item">
-        <div class="c-list-detail_icon">
-          <i class="material-icons">place</i>
+      <li class='c-list-detail_item'>
+        <div class='c-list-detail_icon'>
+          <i class='material-icons'>place</i>
         </div>
-        <div class="c-list-detail_text">
-          <h4 class="c-list-detail_title">
+        <div class='c-list-detail_text'>
+          <h4 class='c-list-detail_title'>
             アクセス
           </h4>
-          <p class="c-list-detail_content">
+          <p class='c-list-detail_content'>
             <%= place %>
           </p>
         </div>
@@ -188,23 +219,25 @@ const template_layout_top = require("../shared/_layout_top.ejs");
   </section>
 
   <% const google_map = data_detail.detail.google_map; %>
-  <section class="p-shop_section">
-    <h3 class="c-heading-b c-heading--medium u-ff-en">
+  <section class='p-shop_section'>
+    <h3 class='c-heading-b c-heading--medium u-ff-en'>
       Google Map
     </h3>
 
     <% // APIはお金かかるためGoogleMapからiframeのURLを取ってくる   %>
-    <iframe src="<%= google_map.iframe_url %>"
-            width="100%"
-            height="450"
-            frameborder="0"
-            style="border:0"
-            allowfullscreen></iframe>
+    <iframe
+      src='<%= google_map.iframe_url %>'
+      id='js-google-map'
+      class='p-shop_map'
+      width='100%'
+      frameborder='0'
+      style='border:0'
+      allowfullscreen></iframe>
   </section>
 </div>
 
 <%
-const template_layout_bottom = require("../shared/_layout_bottom.ejs");
+const template_layout_bottom = require('../shared/_layout_bottom.ejs');
 %>
 
 <%- template_layout_bottom({
