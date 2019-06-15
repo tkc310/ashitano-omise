@@ -28,11 +28,7 @@
 			"working": "平日 10:00〜19:30",
 			"closing": "土日・祝日"
 		},
-		"price_range": {
-			"low": "1000",
-			"high": "2500",
-			"full": "1,000円〜2,500円"
-		},
+        "price_range": "1,000円〜2,500円",
 		"payments": [
 			"Visa",
 			"MasterCard",
