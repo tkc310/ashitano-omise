@@ -12,6 +12,7 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
 const pageConfig = require('./page_config.json');
 
@@ -132,6 +133,21 @@ module.exports = (env, argv) => {
     devtool = 'cheap-eval-source-map';
   }
   else {
+    const paths = pageConfig.pages.map(page => {
+      let ret = '/';
+      switch (page.name) {
+        case 'about':
+        case 'request':
+        case 'privacy-policy':
+          ret = `/else/${page.name}`;
+          break;
+        case 'shops':
+          ret = `/shops/${page.id}`;
+          break;
+      }
+      return ret;
+    });
+
     plugins = plugins.concat([
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.optimize\.css$/g,
@@ -141,6 +157,7 @@ module.exports = (env, argv) => {
         },
         canPrint: true
       }),
+      new SitemapPlugin(pageConfig.global.host, paths)
     ]);
 
     optimization = {
@@ -272,6 +289,8 @@ module.exports = (env, argv) => {
         '@': path.resolve(__dirname, 'src/assets/'),
         '@ts': path.resolve(__dirname, 'src/assets/ts/'),
         '@scss': path.resolve(__dirname, 'src/assets/scss/'),
+        '@data': path.resolve(__dirname, 'src/data/'),
+        '@root': path.resolve(__dirname, './'),
         vue: 'vue/dist/vue.js',
       }
     },
