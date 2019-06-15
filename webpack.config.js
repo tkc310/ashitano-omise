@@ -38,8 +38,22 @@ module.exports = (env, argv) => {
       } = page;
 
       // TODO: templateからjson,images_dir作るgenerator
-      const src =  type === 'single' ? name : `${name}/template`;
-      const dist = type === 'single' ? name : `${name}/${id}/index`;
+      let src = '';
+      let dist = '';
+      switch (type) {
+        case 'single':
+          src = name;
+          dist = name;
+          break;
+        case 'else':
+          src = `else/${name}`;
+          dist = `${name}/index`;
+          break;
+        case 'collection':
+          src = `${name}/template`;
+          dist = `${name}/${id}/index`;
+          break;
+      }
 
       return new HtmlWebpackPlugin({
         template: `./src/${src}.ejs`,
@@ -50,6 +64,11 @@ module.exports = (env, argv) => {
           id,
           params,
           global: pageConfig.global
+        },
+        minify: {
+          collapseWhitespace: true,
+          collapseInlineTagWhitespace: true,
+          removeComments: true
         }
       });
     });

@@ -1,0 +1,85 @@
+<%
+const data = require('../data/else.json');
+const data_detail = data[name];
+
+const template_layout_top = require("../shared/_layout_top.ejs");
+%>
+<%- template_layout_top({
+  data: data_detail,
+  data_common: data_detail,
+  type: type,
+  global: global
+}) %>
+
+<div class="p-else">
+  <h2 class="p-else_name c-heading-a">
+    <%= data_detail.title %>
+  </h2>
+
+  <div class="u-mb24">
+    <p>
+      <%= global.site_name %>は、東京都内で開店前・開店したお店の情報をいち早くお届けするメディアです。<br>
+      飲食店・セレクトショップなど業種を越えたお店をご紹介しています。<br><br>
+
+      「行ってみよう」のキッカケになるようなお店が見つかるメディアを目指しています。
+    </p>
+  </div>
+
+  <%
+  // カテゴリーができたらコメント外す
+  if (false) {
+  %>
+  <section class="p-else_section">
+    <h3 class="c-heading-a c-heading--medium">
+      志向ごとに探せる。ユニークなカテゴリー
+    </h3>
+
+    <p class="u-mb8">
+      <%= global.site_name %>では、その時の気分や状況などニーズに合わせてお店が見つかるよう、少しワクワクするようなカテゴリーを設けています。
+    </p>
+
+    <ul class="c-list">
+      <li class="c-list_item">
+        ナウい
+      </li>
+      <li class="c-list_item">
+        インスタ映え
+      </li>
+      <li class="c-list_item">
+        攻めてる
+      </li>
+      <li class="c-list_item">
+        レトロ
+      </li>
+      <li class="c-list_item">
+        エロい
+      </li>
+    </ul>
+  </section>
+  <% } %>
+
+  <section class="p-else_section">
+    <h3 class="c-heading-a c-heading--medium">
+      お店のオーナー様へ
+    </h3>
+
+    <p>
+      <%= global.site_name %>への掲載は無料です。<br>
+      SNSへの配信も定期的に行なっているため、検索エンジン・SNS・口コミでの集客効果が期待できます。<br><br>
+
+      また、開店からまもなくHPなどの準備ができていないケースにおいても、基本情報を提供する手段としても有効に活用いただけます。<br>
+    </p>
+  </section>
+</div>
+
+<%
+const template_layout_bottom = require("../shared/_layout_bottom.ejs");
+%>
+
+<%- template_layout_bottom({
+  data: data_detail,
+  data_common: data,
+  type: type,
+  name: name,
+  global: global
+}) %>

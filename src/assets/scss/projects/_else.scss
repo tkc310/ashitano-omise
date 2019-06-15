@@ -1,0 +1,31 @@
+// project else
+
+@import '../_variable';
+@import '../_mixin';
+
+.p-else {
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  text-align: left;
+
+  @include media-max('2.5col') {
+    width: 100%;
+    padding: 0 16px;
+  }
+  @include media-max('2col') {
+    padding: 0;
+  }
+  &_main {}
+  &_section {
+    margin-bottom: 40px;
+    @include media-max('2.5col') {
+      margin-bottom: 24px;
+    }
+  }
+  &_code {
+    font-size: .9rem;
+    background: #f9f9f9;
+    padding: 16px;
+  }
+}

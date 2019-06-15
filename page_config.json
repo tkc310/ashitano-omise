@@ -1,9 +1,30 @@
 {
 	"global": {
-		"host": "https://ashitano-omise.ga"
+		"host": "https://ashitano-omise.ga",
+		"site_name": "アシタノオミセ東京",
+		"site_name_en": "Ashitano Omise Tokyo",
+		"logo_image_full_path": "",
+		"og_image": "",
+		"owner": "アシタノオミセ東京 運営事務局",
+		"sns": {
+			"twitter": {
+				"url": "http://www.twitter.com/yourProfile"
+			},
+			"instagram": {
+				"url": "http://www.instagram.com/yourProfile"
+			},
+			"line": {
+				"url": "http://www.line.com/yourProfile"
+			}
+		},
+		"contact_mail": "request@ashitano-omise.ga"
 	},
 	"pages": [
 		{ "name": "index", "type": "single" },
+
+		{ "name": "about", "type": "else" },
+		{ "name": "request", "type": "else" },
+		{ "name": "privacy-policy", "type": "else" },
 
 		{ "name": "shops", "type": "collection", "id": 1 },
 		{ "name": "shops", "type": "collection", "id": 2 },

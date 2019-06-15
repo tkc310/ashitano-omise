@@ -1,0 +1,125 @@
+<%
+const data = require('../data/else.json');
+const data_detail = data[name];
+
+const template_layout_top = require("../shared/_layout_top.ejs");
+%>
+<%- template_layout_top({
+  data: data_detail,
+  data_common: data_detail,
+  type: type,
+  global: global
+}) %>
+
+<div class="p-else">
+  <h2 class="p-else_name c-heading-a">
+    <%= data_detail.title %>
+  </h2>
+
+  <p class="u-mb24">
+    ウェブサイト「<%= global.site_name %>」（以下「当サイト」といいます)は、
+    当サイトを安心してご利用いただけるよう、
+    個人情報の取扱いについて以下のような取り組みを行っております。
+  </p>
+
+  <section class="p-else_section">
+    <h3 class="c-heading--small">1. 基本方針</h3>
+    <p>
+      当サイトは、個人情報の保護及びそのためのセキュリティー対策の実施が、
+      事業活動の基本であると共に、社会的責務であると考えております。<br>
+      したがい、当サイトの利用にあたりご提供いただく個人情報を業務において取り扱う場合には、
+      個人情報に関する法令、社内規定等に基づき、細心の注意のもとで取り扱うことをお約束し、
+      同時に個人情報保護方針を以下の通りに定め、当サイトをご利用になるお客様の個人情報に向け
+      てのプライバシー・ポリシーとして宣言させて頂きます。
+    </p>
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading--small">2. 個人情報の利用目的</h3>
+    <p>
+      ご提供頂いた個人情報につきましては、以下の目的で利用させて頂きます。<br>
+      (1) 当サイト上で紹介する店舗情報に関するメールマガジン送信、宣伝物・印刷物送付等の
+      情報提供。<br>
+      (2) 上記(1)に付帯するその他業務。<br>
+      (3) 上記(2)の利用目的の達成に必要な範囲での、個人情報の第三者への提供。<br>
+      (4) 顧客動向分析および商品開発等のための調査分析。<br>
+      (5) 当サイト又は当サイト運営者が運営するその他サービスに関するメールマガジン等による
+      情報提供。
+    </p>
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading--small">3. 個人情報の第三者提供</h3>
+    <p>
+      次の場合を除き、お客様から提供頂いた個人情報を第三者に開示することはありません。<br>
+      (1) お客様から第三者への情報開示について予めご同意頂いた場合。<br>
+      (2) 業務を円滑に進める等の理由で外部業者に取り扱いを委託する場合。<br>
+      （この場合には、十分な保護水準を備えている委託先を選択し、漏洩や再提供を防止する為、
+      契約による義務づけ等の方法により適切な管理を実施致します)<br>
+      (3) 法令等により開示要請を受けた場合。<br>
+      (4) 個人情報保護法その他の法令により開示が許容される場合
+    </p>
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading--small">4. 共同利用に関する事項</h3>
+    <p>
+      当サイトは、以下のとおりお客様の個人情報を共同利用いたします。<br>
+      (1) 共同して利用される個人情報の項目<br>
+      お名前、メールアドレス及びその他当サイト掲載店舗への問い合わせに関連してご提供頂いた個人
+      情報<br>
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading--small">5. 本プライバシー・ポリシーの適用範囲</h3>
+    <p>
+      本プライバシー・ポリシーは、当サイトを通じてお客様にご提供いただく個人情報にのみ適用
+      されるものとします。
+    </p>
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading--small">6. 個人情報の開示、訂正、利用停止等のお問合せ先</h3>
+    <p>
+      お客様からお預かりしている個人情報に関し、開示、訂正（変更・追加)及び削除または第三者
+      への提供の停止等を求められる場合にはこちらまでご連絡下さい。<br>
+      その他、当サイトにおける個人情報の取扱いに関してのご意見、ご質問、苦情等につきましては、
+      こちらまでお問合せ下さい。<br>
+      「<%= global.site_name %>」問合せフォーム
+    </p>
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading--small">7. 個人情報保護についての取り組み</h3>
+    <p>
+      お客様が個人情報を安心してご提供頂けるための技術の導入やご提供頂いた後の安全な情報管理
+      を実現するための情報セキュリティー対策（情報の漏洩、改ざん、紛失および不正アクセス等の
+      防止)の改善等の取り組みに努め、お客様の個人情報に対するセキュリティーの向上を図ってい
+      きます。<br>
+      当サイトの運営に関わるすべての役員および従業員に対して、社内規定等に基づき、関係法令等
+      を遵守するために必要な教育・研修を実施すると共に、必要かつ適切な監督を行います。<br>
+      個人情報の漏洩等の不測の事態に迅速・的確に対応するための危機管理体制を整えております。
+    </p>
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading--small">8. 本方針の改定</h3>
+    <p>
+      本方針は、法令等の要請や個人情報保護の一層の改善のため、適宜見直し、改定を進めて参りま
+      す。<br>
+      以上
+    </p>
+  </section>
+</div>
+
+<%
+const template_layout_bottom = require("../shared/_layout_bottom.ejs");
+%>
+
+<%- template_layout_bottom({
+  data: data_detail,
+  data_common: data,
+  type: type,
+  name: name,
+  global: global
+}) %>

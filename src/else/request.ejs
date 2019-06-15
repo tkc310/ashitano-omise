@@ -1,0 +1,215 @@
+<%
+const data = require('../data/else.json');
+const data_detail = data[name];
+
+const template_layout_top = require("../shared/_layout_top.ejs");
+%>
+<%- template_layout_top({
+  data: data_detail,
+  data_common: data_detail,
+  type: type,
+  global: global
+}) %>
+
+<div class="p-else">
+  <h2 class="p-else_name c-heading-a">
+    <%= data_detail.title %>
+  </h2>
+
+  <p class="u-mb24">
+    <%= global.site_name %>への掲載は無料です。<br>
+    SNSへの配信も定期的に行なっているため、検索エンジン・SNS・口コミでの集客効果が期待できます。<br><br>
+
+    また、開店からまもなくHPなどの準備ができていないケースにおいても、基本情報を提供する手段としても有効に活用いただけます。<br>
+  </p>
+
+  <section class="p-else_section">
+    <h3 class="c-heading-b c-heading--medium">
+      掲載までの流れ
+    </h3>
+
+    <p class="u-mb16">
+      当メディアに掲載されるまでの流れをご説明いたします。
+    </p>
+
+    <ol class="c-list">
+      <li class="c-list_item u-mb16">
+        <h4>掲載条件を確認</h4>
+        <p>
+          当メディアでは掲載条件を設けており、条件に合致しない・同意いただけない場合は掲載を見送らせていただく場合があります。<br>
+          下記の条件をご確認ください。
+        </p>
+
+        <ul class="c-list">
+          <li class="c-list_item">
+            1ヶ月以内に開店予定、もしくは開店から1年以内のお店
+          </li>
+          <li class="c-list_item">
+            東京都内で営業予定、もしくは営業しているお店
+          </li>
+          <li class="c-list_item">
+            いただいた文章は当メディアのイメージにあった文体に調整させていただく場合があります<br>
+            (文章の意図が変わらない範囲での調整です。ただし過激な単語は調整する可能性が高いです)
+          </li>
+          <li class="c-list_item">
+            原則、掲載情報の加筆修正は受け付けておりません<br>
+            (掲載ページの削除は可能です)
+          </li>
+          <li class="c-list_item">
+            反社会的な団体、及び左記と関係を持つ団体でない
+          </li>
+        </ul>
+      </li>
+      <li class="c-list_item u-mb16">
+        <h4>掲載に必要な情報を準備</h4>
+        <p>
+          掲載する際の写真や文章の準備をお願いします。<br>
+          詳しくは後述の「掲載に必要な情報」をご確認ください。
+        </p>
+      </li>
+      <li class="c-list_item u-mb16">
+        <h4>掲載に必要な情報をメールで送信</h4>
+        <p>
+          準備した写真や文章をメールにて送信をお願いします。<br>
+          詳しくは後述の「文章、画像の送信方法」をご確認ください。
+        </p>
+      </li>
+      <li class="c-list_item u-mb16">
+        <h4>写真の再撮影、文章の加筆依頼</h4>
+        <p>
+          いただいた写真や文章が後述の「掲載に必要な情報」のフォーマットに沿っていない場合などに、ご連絡を差し上げる事がございます。
+        </p>
+      </li>
+      <li class="c-list_item u-mb16">
+        <h4>掲載完了のお知らせ</h4>
+        <p>
+          掲載URLと共に掲載が完了した事をお知らせするメールをお送りいたします。
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading-b c-heading--medium">
+      掲載に必要な情報
+    </h3>
+
+    <p class="u-mb16">
+      掲載依頼のメールに下記のフォーマットを貼り付けて、文章をご記入ください。
+    </p>
+
+    <div class="u-mb16">
+      <h4 class="u-mb8">件名</h4>
+      <p class="p-else_code">
+        【掲載依頼】 お店の名前(店舗名をご記入ください)
+      </p>
+    </div>
+
+    <div>
+      <h4 class="u-mb8">本文</h4>
+      <p class="p-else_code">
+        - ご担当者様の情報 -<br>
+        【ご担当者様の氏名】: 依頼を行われるご担当者様の氏名をご記入ください<br>
+        【ご担当者様の連絡先】: ご担当者様のメールアドレスをご記入ください<br><br>
+
+        - お店の情報 -<br>
+        【お店の名前】: 店舗名をご記入ください<br>
+        【リンク】: 店舗のHPやFacebook、予約サービスのリンクがある場合はURLをご記入ください(複数可)<br>
+        【TEL】: 店舗の電話番号をご記入ください<br>
+        【FAX】: 店舗のFAX番号がある場合はご記入ください<br>
+        【MAIL】: 店舗のメールアドレスがある場合はご記入ください<br>
+        【開店日】: 開店日をご記入ください(例 2019/01/01(火)<br>
+        【営業日・営業時間】: 営業日と時間をご記入ください(例 平日10:00〜20:00 土日10:00〜15:00<br>
+        【定休日】: 定休日をご記入ください(例 祝日、12/30〜1/3<br>
+        【決済方法】: 現金や電子マネーなどの決済方法をご記入ください(複数可)<br>
+        【平均的な予算】: サービスに掛かる平均的な予算のをご記入ください(例 1,000円〜3,500円<br>
+        【住所】: 店舗の住所郵便番号からをご記入ください(例 〒150-0043 東京都渋谷区道玄坂２丁目１<br>
+        【アクセス方法】: 店舗までの簡単な道案内をご記入ください(任意項目です)<br><br>
+
+        - お店の概要 -<br>
+        コンセプトなどの概要をご記入ください。<br><br>
+
+        - お店のおすすめメニュー -<br>
+        一押しのメニュー名とその説明をご記入ください。<br><br>
+
+        - お店スタッフの方々について -<br>
+        店舗を運営されているスタッフの皆さんについてご記入ください。<br>
+        趣味や性格、生い立ちなどを紹介すると、閲覧ユーザーが親近感を持ってくれやすくなります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="p-else_section">
+    <h3 class="c-heading-b c-heading--medium">
+      文章、画像の送信方法
+    </h3>
+
+    <div class="u-mb16">
+      <h4 class="u-mb8">画像のフォーマットについて</h4>
+
+      <p class="u-mb8">
+        画像は次のフォーマットで撮影、zip圧縮してメールに添付ください。<br>
+        出来るだけ解像度が高く、加工していないものが望ましいです。<br>
+        手戻りを防ぐため、それぞれの種類についてアングルや距離を変えて3枚ずつ撮影ください。<br>
+        拡張子は全てjpgもしくはjpegになります。
+      </p>
+
+      <ol class="c-list">
+        <li class="c-list_item">
+          <h4>メインの写真</h4>
+          <p>
+            縦撮りでお願いします。<br>
+            <a href="/">トップページ</a>で表示される画像になります。<br>
+            お店の外観が望ましいですが、難しい場合は見栄えする写真で問題ありません。<br>
+          </p>
+        </li>
+        <li class="c-list_item">
+          <h4>店内の写真</h4>
+          <p>
+            横撮りでお願いします。
+          </p>
+        </li>
+        <li class="c-list_item">
+          <h4>おすすめメニューの写真</h4>
+          <p>
+            横撮りでお願いします。<br>
+            一つのメニューに絞っていただく事が望ましいですが、商品の属性上難しい場合はこれに限りません。
+          </p>
+        </li>
+        <li class="c-list_item">
+          <h4>スタッフの皆さんの写真</h4>
+          <p>
+            横撮りでお願いします。<br>
+            仕事をされている風景でも、休憩中のフランクな風景でも問題ありません。<br>
+            スタッフの皆さんの人柄、お仕事の姿勢が伝わる写真が望ましいです。
+          </p>
+        </li>
+    </div>
+
+    <div>
+      <h4 class="u-mb8">送信先</h4>
+
+      <p class="u-mb8">
+        文章、画像は下記のメールアドレスに送信ください。
+      </p>
+
+      <p class="p-else_code">
+        <%= global.contact_mail %>
+      </p>
+    </div>
+  </section>
+</div>
+
+<%
+const template_layout_bottom = require("../shared/_layout_bottom.ejs");
+%>
+
+<%- template_layout_bottom({
+  data: data_detail,
+  data_common: data,
+  type: type,
+  name: name,
+  global: global
+}) %>

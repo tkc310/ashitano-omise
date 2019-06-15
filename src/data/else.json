@@ -1,0 +1,23 @@
+{
+  "about": {
+    "url": "about",
+    "title": "アシタノオミセ東京とは",
+    "description": "アシタノオミセ東京は、都内および都内からアクセスしやすい範囲で開店前・開店したお店の情報をいち早くお届けするメディアです。",
+    "keywords": "新しいお店, オープン, プレオープン, 開店, 新装開店",
+    "og_image": "TODO: logo入れる"
+  },
+  "request": {
+    "url": "request",
+    "title": "掲載依頼",
+    "description": "アシタノオミセ東京に掲載を依頼",
+    "keywords": "新しいお店, オープン, プレオープン, 開店, 新装開店",
+    "og_image": "TODO: logo入れる"
+  },
+  "privacy-policy": {
+    "url": "privacy-policy",
+    "title": "プライバシーポリシー",
+    "description": "プライバシーポリシー",
+    "keywords": "新しいお店, オープン, プレオープン, 開店, 新装開店",
+    "og_image": "TODO: logo入れる"
+  }
+}
