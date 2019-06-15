@@ -252,3 +252,35 @@
     }
   }
 }
+
+.c-menu {
+  position: fixed;
+  top: 47px;
+  right: 0;
+  width: 200px;
+  height: 100vh;
+  padding: 16px;
+  text-align: left;
+  background: $bg-color-menu;
+  transition: transform 200ms;
+  transform: translateX(500px);
+  @include media-max('2col') {
+    width: 100%;
+    height: auto;
+    padding: 8px 0;
+    text-align: center;
+  }
+  &.is-show {
+    transform: translateX(0);
+  }
+  &_list {
+    list-style: none;
+  }
+  &_item {
+    line-height: 40px;
+  }
+  &_link {
+    color: #fff;
+    font-size: .8rem;
+  }
+}

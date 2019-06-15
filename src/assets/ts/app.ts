@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Menu from '@ts/components/menu';
 import ButtonTop from '@ts/components/button_top';
 import DeviceInitializer from '@ts/common/device_initializer';
 
@@ -7,6 +8,13 @@ if (buttonTopNode) {
   new Vue({
     render: h => h(ButtonTop)
   }).$mount(buttonTopNode);
+}
+
+const menuNode = document.getElementById('vue-menu');
+if (menuNode) {
+  new Vue({
+    render: h => h(Menu)
+  }).$mount(menuNode);
 }
 
 window.onload = () => {
