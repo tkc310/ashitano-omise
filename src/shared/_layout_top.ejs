@@ -13,10 +13,13 @@ const template_head = require("./_head.ejs");
   <%- include src/shared/_header %>
 
   <main class="l-content">
-    <% if (type === 'collection') { %>
+    <% if (['collection', 'else'].includes(type)) { %>
     <ul class="c-list-bc">
       <li class="c-list-bc_item">
-        <a href="/">TOP</a>
+        <a
+          href="/"
+          data-touch
+        >TOP</a>
       </li>
       <li class="c-list-bc_item">
         <span><%= data_common.title %></span>

@@ -7,13 +7,20 @@
   <!-- SEO start -->
   <meta name="robots" content="noindex">
 
-  <title><%= data.title %></title>
+  <%
+  var title = data.title;
+  if (data.title) {
+    title += ' | ';
+  }
+  title += global.site_name;
+  %>
+  <title><%= title %></title>
   <meta name="description" content="<%= data.description %>">
   <meta name="keywords" content="<%= data.keywords %>">
 
-  <meta property="og:title" content="<%= data.title %>">
+  <meta property="og:title" content="<%= title %>">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="<%= global.host %>/assets/images/<%= data.og_image %>">
+  <meta property="og:image" content="<%= global.host %>/assets/images/<%= data.og_image || global.og_image %>">
   <meta property="og:url" content="<%= global.host %>/<%= data.url %>">
 
   <link rel="canonical" href="<%= global.host %>/<%= data.url %>">

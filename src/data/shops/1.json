@@ -2,7 +2,7 @@
 	"id": 1,
 	"og_image": "shops/1/top.jpg",
 	"url": "shops/1",
-	"title": "Cafe&Bar CIKAME | アシタノオミセ Tokyo",
+	"title": "Cafe&Bar CIKAME",
 	"description": "目黒駅から歩いて３分のところに開店します。”インスタ映えする料理”をテーマに有名ホテルで修行したシェフが料理を作ります。お店の雰囲気はヨーロッパから取り寄せたアンティーク家具を中心にエレガントでありながらくつろげる空間を意識しています。店内のレジ横には親しくさせていただいているアーティスト様の作品も販売しております。ぜひお手にとってご覧ください。",
 	"keywords": "目黒駅のカフェ, 目黒駅のバー, インスタ映え, インスタ映えする料理, アンティーク",
 
@@ -25,15 +25,50 @@
 		},
 		"date": {
 			"release": "2017.12.24 (金) 12:00",
-			"working": "2017.12.24 (金) 12:00"
+			"working": "平日 10:00〜19:30 休日 10:00〜15:00",
+			"closing": "土日・祝日 12/30〜1/3"
 		},
+		"price_range": "1,000円〜2,500円",
 		"payments": [
 			"Visa",
 			"MasterCard",
 			"現金",
 			"LINE Pay"
 		],
-		"place": "〒141-0021 東京都品川区上大崎２丁目１６",
+		"place": "〒248-0012 神奈川県鎌倉市御成町１丁目１−１５",
+		"address": {
+			"postalCode": "248-0012",
+			"addressRegion": "東京都",
+			"addressLocality": "渋谷区",
+			"streetAddress": "１丁目１−１５ hogeビル5F"
+		},
+		"openingHoursSpecification": [
+			{
+				"@type": "OpeningHoursSpecification",
+				"opens": "10:00",
+				"closes": "19:30",
+				"dayOfWeek": [
+					"Tuesday",
+					"Wednesday",
+					"Thursday",
+					"Friday"
+				]
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"opens": "00:00",
+				"closes": "00:00",
+				"dayOfWeek": [
+					"Saturday",
+					"Sunday",
+					"PublicHolidays"
+				]
+			}
+		],
+		"geo": {
+			"latitude": 40.761293,
+			"longitude": -73.982294
+		},
 		"google_map": {
 			"iframe_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1119.0052282772958!2d139.71557417260112!3d35.63395780031791!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf76822e972bb3c1!2sMeguro+Station!5e0!3m2!1sja!2sjp!4v1560064988948!5m2!1sja!2sjp"
 		}

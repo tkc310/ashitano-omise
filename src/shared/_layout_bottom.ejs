@@ -1,5 +1,15 @@
 </main>
-<%- include src/shared/_footer %>
+<%
+const template_footer = require("./_footer.ejs");
+var title = data.title;
+if (data.title) {
+  title += ' | ';
+}
+title += global.site_name;
+%>
+<%- template_footer({
+  global: global
+}) %>
 </div>
 
 <script src="/assets/js/app.js"></script>
@@ -9,16 +19,47 @@ MEMO: JSON-LD
 ref: https://qiita.com/narumana/items/b66969b80cce848b2ddf
 https://webty.jp/staffblog/production/post-629/
 http://beginner-seogirl.com/blog/about-seo/semantic-localbusiness-json-ld/
+https://www.itti.jp/web-design/microdata-json-ld/
 
-TODO: 店舗ジャンル, 住所, 営業時間, 価格の範囲
+
+TODO: 店舗ジャンル
+https://schema.org/LocalBusiness#subtypes
 -->
+
+<%
+const sns_links = Object.keys(global.sns).map(function (snsKey) {
+  return global.sns[snsKey].url;
+});
+%>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "<%= global.site_name %>",
+  "url": "<%= global.host %>"
+  "sameAs": <%- JSON.stringify(sns_links) %>
+}
+</script>
 
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
-  "name": "Ashitano Omise Tokyo",
-  "url": "https://ashitano-omise.ga"
+  "name": "<%= global.site_name %>",
+  "inLanguage": "jp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "<%= global.owner %>",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "<%= global.logo_image_full_path %>"
+    }
+  },
+  "copyrightYear": "<%= new Date().toISOString() %>",
+  "headline": "<%= title %>",
+  "description": "<%= data.description %>",
+  "url":"<%= global.host %>/<%= data.url %>"
 }
 </script>
 
@@ -41,10 +82,13 @@ TODO: 店舗ジャンル, 住所, 営業時間, 価格の範囲
   </script>
 <% } %>
 
-<% if (type === 'collection') { %>
+<% if (type === 'collection' && name === 'shops') { %>
   <%
   const images = ['top', 'inner', 'menu', 'staff'].map(function(item, idx) {
     return global.host + '/assets/images/shops/' + data.id + '/' + item + '.jpg';
+  });
+  const links = data.detail.links.map(function(item, idx) {
+    return item.url;
   });
   %>
   <script type="application/ld+json">
@@ -52,8 +96,26 @@ TODO: 店舗ジャンル, 住所, 営業時間, 価格の範囲
     "@context": "http://schema.org/",
     "@type": "LocalBusiness",
     "name": "<%= data_common.title %>",
+    "description": "<%= data.description %>",
     "image": <%- JSON.stringify(images) %>,
-    "telephone": "<%= data.detail.contact.tel %>"
+    "telephone": "<%= data.detail.contact.tel %>",
+    "url": "<%= global.host %>/<%= data.url %>",
+    "sameAs": <%- JSON.stringify(links) %>,
+    "priceRange": "<%= data.detail.price_range %>",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "JP",
+      "postalCode": "<%= data.detail.address.postalCode %>",
+      "addressRegion": "<%= data.detail.address.addressRegion %>",
+      "addressLocality": "<%= data.detail.address.addressLocality %>",
+      "streetAddress": "<%= data.detail.address.streetAddress %>"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.761293,
+      "longitude": -73.982294
+    },
+    "openingHoursSpecification": <%- JSON.stringify(data.detail.openingHoursSpecification) %>
   }
   </script>
 
@@ -74,7 +136,7 @@ TODO: 店舗ジャンル, 住所, 営業時間, 価格の範囲
         "@type": "ListItem",
         "position": 2,
         "item": {
-          "@id": "<%= global.host %>/shops/<%= data.id  %>",
+          "@id": "<%= global.host %>/shops/<%= data.id %>",
           "name": "<%= data_common.title %>"
         }
       }

@@ -2,7 +2,7 @@
 	"id": 3,
 	"og_image": "shops/3/top.jpg",
 	"url": "shops/3",
-	"title": "パンケーキ専門店 PANKU | アシタノオミセ Tokyo",
+	"title": "パンケーキ専門店 PANKU",
 	"description": "パンケーキ食べたい！パンケーキ食べたい！と思っている皆さん、ぜひいらしてください。私たちパンケーキ専門店 PANKUでは今までに味わったことのないパンケーキメニューを多数ご用意してみなさんをお待ちしております。お店で利用しているパンケーキソースは店内で販売も行っておりますので、お家でも食べたい！という方はぜひご購入ください。",
 	"keywords": "目黒駅のカフェ, 目黒駅のバー, インスタ映え, インスタ映えする料理, アンティーク",
 
@@ -25,7 +25,13 @@
 		},
 		"date": {
 			"release": "2017.12.24 (金) 12:00",
-			"working": "2017.12.24 (金) 12:00"
+			"working": "平日 10:00〜19:30",
+			"closing": "土日・祝日"
+		},
+		"price_range": {
+			"low": "1000",
+			"high": "2500",
+			"full": "1,000円〜2,500円"
 		},
 		"payments": [
 			"Visa",
@@ -34,6 +40,35 @@
 			"LINE Pay"
 		],
 		"place": "〒248-0012 神奈川県鎌倉市御成町１丁目１−１５",
+		"address": {
+			"postalCode": "248-0012",
+			"addressRegion": "東京都",
+			"addressLocality": "渋谷区",
+			"streetAddress": "１丁目１−１５ hogeビル5F"
+		},
+		"openingHoursSpecification": [
+			{
+				"@type": "OpeningHoursSpecification",
+				"opens": "10:00",
+				"closes": "19:30",
+				"dayOfWeek": [
+					"Tuesday",
+					"Wednesday",
+					"Thursday",
+					"Friday"
+				]
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"opens": "00:00",
+				"closes": "00:00",
+				"dayOfWeek": [
+					"Saturday",
+					"Sunday",
+					"PublicHolidays"
+				]
+			}
+		],
 		"google_map": {
 			"iframe_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d658.7808585338638!2d139.5501923593765!3d35.318898199009126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601845c22a4f73df%3A0xc7e93a3e84fb0e0e!2z6Y6M5YCJ6aeF!5e0!3m2!1sja!2sjp!4v1560065281995!5m2!1sja!2sjp"
 		}

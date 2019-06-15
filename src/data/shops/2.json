@@ -2,7 +2,7 @@
 	"id": 2,
 	"og_image": "shops/2/top.jpg",
 	"url": "shops/2",
-	"title": "Coffee Shop 豆屋まめ | アシタノオミセ Tokyo",
+	"title": "Coffee Shop 豆屋まめ",
 	"description": "店名にもある豆をモチーフにしたインテリアやオブシェをご用意しております。コーヒー豆が店内でゆっくり寛いでいただけるように、雑誌もお店の入り口の本棚にご用意しております。ぜひコーヒーを飲みながらゆっくりコーヒーをご賞味ください。店内のインテリアで一番のおすすめ豆の柔らかいフレームをモチーフにしたクッションです。",
 	"keywords": "目黒駅のカフェ, 目黒駅のバー, インスタ映え, インスタ映えする料理, アンティーク",
 
@@ -25,7 +25,13 @@
 		},
 		"date": {
 			"release": "2017.12.24 (金) 12:00",
-			"working": "2017.12.24 (金) 12:00"
+			"working": "平日 10:00〜19:30",
+			"closing": "土日・祝日"
+		},
+		"price_range": {
+			"low": "1000",
+			"high": "2500",
+			"full": "1,000円〜2,500円"
 		},
 		"payments": [
 			"Visa",
@@ -33,7 +39,36 @@
 			"現金",
 			"LINE Pay"
 		],
-		"place": "〒150-0043 東京都渋谷区道玄坂２丁目１",
+		"place": "〒248-0012 神奈川県鎌倉市御成町１丁目１−１５",
+		"address": {
+			"postalCode": "248-0012",
+			"addressRegion": "東京都",
+			"addressLocality": "渋谷区",
+			"streetAddress": "１丁目１−１５ hogeビル5F"
+		},
+		"openingHoursSpecification": [
+			{
+				"@type": "OpeningHoursSpecification",
+				"opens": "10:00",
+				"closes": "19:30",
+				"dayOfWeek": [
+					"Tuesday",
+					"Wednesday",
+					"Thursday",
+					"Friday"
+				]
+			},
+			{
+				"@type": "OpeningHoursSpecification",
+				"opens": "00:00",
+				"closes": "00:00",
+				"dayOfWeek": [
+					"Saturday",
+					"Sunday",
+					"PublicHolidays"
+				]
+			}
+		],
 		"google_map": {
 			"iframe_url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12966.909686629437!2d139.7006779!3d35.6590868!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1d01d35eef4bf7a!2z44OP44OB5YWs5YmN5bqD5aC0!5e0!3m2!1sja!2sjp!4v1560061937291!5m2!1sja!2sjp"
 		}
